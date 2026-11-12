@@ -8607,3 +8607,283 @@ p {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 }
+
+/* =========================================
+   FIX FOR PROJECTS PAGE OVERFLOW & GRID
+   ========================================= */
+
+/* 1. Ensure the main container never overflows the viewport */
+.content-shell {
+    width: min(var(--max), calc(100% - 32px));
+    /* Reduced padding for mobile */
+    margin-inline: auto;
+    box-sizing: border-box;
+    /* Ensures padding is included in width */
+}
+
+/* 2. Fix the Two-Column Intro Grid (The main culprit in your screenshot) */
+.two-col-intro {
+    display: grid;
+    /* Change from 0.9fr 1.1fr to a single column on mobile */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    /* Reduce gap from 75px to something manageable */
+    align-items: start;
+}
+
+/* 3. Fix the Project Detail Grid (Another likely issue) */
+.project-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Stack columns on mobile */
+    gap: 40px;
+}
+
+/* 4. Fix the Project Visual height on mobile */
+.project-visual {
+    height: 400px;
+    /* Adjust height so it doesn't take up too much vertical space */
+    width: 100%;
+}
+
+/* 5. Ensure images and text don't break out of their containers */
+.project-detail-copy p,
+.project-detail-copy h2,
+.project-detail-copy h3 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    /* Prevents long words from breaking layout */
+}
+
+/* 6. Fix the specific "Shirley Wells" text block shown in the screenshot */
+/* Assuming this is inside a grid or flex container, ensure it has space */
+.project-detail-grid>div {
+    min-width: 0;
+    /* Crucial: prevents grid items from overflowing their container */
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINT FOR TABLETS & MOBILE
+   ========================================= */
+@media (max-width: 900px) {
+    .two-col-intro {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .project-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .project-detail-grid.reverse .project-visual {
+        order: 0;
+        /* Reset order so image is always on top */
+    }
+
+    .project-visual {
+        height: 350px;
+    }
+
+    /* Ensure the text section in your screenshot has proper padding */
+    .project-detail-copy {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .content-shell {
+        width: calc(100% - 24px);
+        /* Tighter margins on very small screens */
+    }
+
+    .project-detail-copy h2 {
+        font-size: 32px;
+        /* Scale down heading size */
+    }
+
+    .project-detail-copy p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .project-visual {
+        height: 280px;
+        /* Shorter image on small phones */
+    }
+}
+
+/* =========================================
+   MOBILE FIX: STACK COLUMNS VERTICALLY
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    /* 1. Fix for "Long-term development planning" section */
+    .next-development-layout {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        /* Forces stacking */
+        gap: 30px;
+        /* Reduces the massive gap */
+    }
+
+    /* 2. Fix for the "About Project Information" disclaimer section */
+    .project-disclosure .content-shell {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        /* Forces stacking */
+        gap: 15px;
+        /* Reduces gap between title and text */
+    }
+
+    /* 3. Make sure the text blocks have room to breathe and don't get squished */
+    .next-development-layout>div,
+    .project-disclosure .content-shell>div {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+/* Extra tweaks for small phones */
+@media (max-width: 600px) {
+    .next-development h2 {
+        font-size: 32px;
+        /* Scales down the huge heading */
+    }
+
+    .next-development p,
+    .project-disclosure p {
+        font-size: 14px;
+        /* Makes the paragraph text readable */
+        line-height: 1.6;
+    }
+}
+
+/* =========================================
+   FIX FOR ARTICLE READING PAGES (MOBILE)
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    /* 1. Force the reading layout to stack into a single column */
+    .reading-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        /* Stacks sidebar and content */
+        gap: 40px !important;
+        /* Space between sidebar and text */
+    }
+
+    /* 2. Fix the sticky sidebar so it behaves normally on mobile */
+    .reading-grid aside {
+        position: static !important;
+        /* Removes the sticky behavior */
+        padding: 20px !important;
+        background: #eae7df;
+        /* Adds a slight background so it stands out */
+        border-radius: 8px;
+        border-top: 3px solid #c79e4d;
+    }
+
+    /* 3. Ensure the main article text is full width and readable */
+    .reading-copy {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .reading-copy .reading-lead {
+        font-size: 20px !important;
+        /* Scales down the large intro text */
+        line-height: 1.5 !important;
+    }
+
+    .reading-section h2 {
+        font-size: 26px !important;
+    }
+
+    .reading-section p {
+        font-size: 15px !important;
+        line-height: 1.7 !important;
+    }
+}
+
+/* Extra small phone adjustments */
+@media (max-width: 600px) {
+    .reading-hero {
+        min-height: 400px !important;
+        padding-top: 120px !important;
+        padding-bottom: 50px !important;
+    }
+
+    .reading-hero h1 {
+        font-size: 36px !important;
+        line-height: 1.1 !important;
+    }
+
+    .reading-hero p {
+        font-size: 15px !important;
+    }
+
+    .reading-header {
+        margin-top: 40px !important;
+    }
+}
+
+/* =========================================
+   FIX FOR EDUCATION / ARTICLE CARDS (MOBILE)
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    /* 1. Force article cards to stack in ONE column instead of 2 or 3 */
+    #articleList,
+    .editorial-cards {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    /* 2. Ensure the article images don't stretch weirdly */
+    .article-tile-img {
+        height: 240px !important;
+    }
+
+    /* 3. Fix the overlapping text inside the cards */
+    .article-tile-body {
+        padding: 24px 20px !important;
+        display: flex;
+        flex-direction: column;
+        min-height: auto !important;
+        /* Remove fixed height that might cause overlapping */
+    }
+
+    /* 4. Let the text wrap naturally instead of being crushed */
+    .article-tile-body h2,
+    .editorial-card h3 {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        /* Reset any absolute positioning that might be breaking the layout */
+        position: relative !important;
+    }
+
+    .article-tile-body p,
+    .editorial-card p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 5. Fix the filter buttons at the top so they don't overflow */
+    .filter-row {
+        gap: 8px !important;
+    }
+
+    .filter-chip {
+        padding: 8px 12px !important;
+        font-size: 10px !important;
+    }
+}
