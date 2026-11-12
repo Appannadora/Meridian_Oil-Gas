@@ -30,68 +30,68 @@
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
     <!-- HEADER -->
+
     <header class="site-header" id="siteHeader">
       <div class="header-inner">
-        <!-- Logo -->
+        <!-- LOGO -->
         <a
-          aria-label="Meridian Oil and Gas home"
           class="site-logo"
           href="index.html"
+          aria-label="Meridian Oil and Gas home"
         >
           <img
-            alt="Meridian Oil & Gas"
-            height="91"
             src="assets/meridian-logo-light.svg"
+            alt="Meridian Oil & Gas"
             width="318"
+            height="91"
           />
         </a>
 
-        <!-- Desktop Nav -->
-        <nav aria-label="Primary" class="desktop-nav">
-          <a aria-current="page" href="index.html">Home</a>
+        <!-- DESKTOP NAVIGATION -->
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page">Home</a>
           <a href="projects.html">Projects</a>
           <a href="team.html">Our Team</a>
           <a href="about.html">About</a>
           <a href="education.html">Insights</a>
           <a href="field-notes.html">Field Updates</a>
         </nav>
-        >
 
-        <!-- Actions -->
+        <!-- HEADER ACTIONS -->
         <div class="nav-actions">
-          <!-- Desktop Contact (hidden on mobile) -->
+          <!-- DESKTOP CONTACT -->
           <a class="header-contact" href="contact.html">
             Contact <span aria-hidden="true">↗</span>
           </a>
 
-          <!-- Mobile Contact (hidden on desktop) -->
-          <a class="mobile-cta" href="contact.html">
-            Contact <span aria-hidden="true">↗</span>
-          </a>
-
-          <!-- Burger Toggle (hidden on desktop) -->
+          <!-- MOBILE MENU BUTTON -->
           <button
             class="nav-toggle"
+            id="navToggle"
+            type="button"
             aria-controls="mobileNav"
             aria-expanded="false"
             aria-label="Open navigation menu"
           >
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Nav Dropdown -->
-      <nav aria-label="Mobile" class="mobile-nav" id="mobileNav">
+      <!-- MOBILE NAVIGATION -->
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="team.html">Our Team</a>
         <a href="about.html">About</a>
         <a href="education.html">Insights</a>
         <a href="field-notes.html">Field Updates</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">Contact ↗</a>
       </nav>
     </header>
+
     <!-- OIL WELL ANIMATION -->
     <div class="oil-well-container" id="oilWell" aria-hidden="true">
       <div class="derrick"></div>

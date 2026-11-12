@@ -565,3 +565,34 @@ document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(link => {
         this.setAttribute('aria-current', 'page');
     });
 });
+
+
+const navToggle = document.getElementById("navToggle");
+const mobileNav = document.getElementById("mobileNav");
+
+if (navToggle && mobileNav) {
+
+    navToggle.addEventListener("click", () => {
+
+        const isOpen =
+            navToggle.getAttribute("aria-expanded") === "true";
+
+        navToggle.setAttribute("aria-expanded", String(!isOpen));
+
+        navToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Open navigation menu" : "Close navigation menu"
+        );
+
+        mobileNav.classList.toggle("open", !isOpen);
+    });
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            mobileNav.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+
+}
