@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://meridianoilandgas.com/sitemap.xml

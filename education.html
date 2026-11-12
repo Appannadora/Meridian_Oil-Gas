@@ -1,0 +1,562 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="#071a2a" name="theme-color" />
+    <meta
+      content="Explore six in-depth oil and gas education articles with reliable industry sources."
+      name="description"
+    />
+    <meta content="website" property="og:type" />
+    <meta content="Meridian Oil &amp; Gas" property="og:site_name" />
+    <meta
+      content="Energy Education | Meridian Oil &amp; Gas"
+      property="og:title"
+    />
+    <meta
+      content="Original education on why oil and gas matter, drilling, reservoirs, produced water and energy markets."
+      property="og:description"
+    />
+    <link href="assets/favicon.png" rel="icon" type="image/png" />
+    <link href="assets/site.css" rel="stylesheet" />
+    <title>Energy Insights | Meridian Oil &amp; Gas</title>
+  </head>
+  <body class="">
+    <a class="skip" href="#main">Skip to content</a>
+    <div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a
+          aria-label="Meridian Oil and Gas home"
+          class="site-logo"
+          href="index.html"
+          ><img
+            alt="Meridian Oil &amp; Gas"
+            height="91"
+            src="assets/meridian-logo-light.svg"
+            width="318"
+        /></a>
+        <nav aria-label="Primary" class="desktop-nav">
+          <a href="index.html">Home</a><a href="projects.html">Projects</a
+          ><a href="team.html">Our Team</a><a href="about.html">About</a
+          ><a aria-current="page" href="education.html">Insights</a
+          ><a href="field-notes.html">Field Updates</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="header-contact" href="contact.html"
+            >Contact <span aria-hidden="true">↗</span></a
+          ><button
+            aria-controls="mobileNav"
+            aria-expanded="false"
+            aria-label="Open navigation menu"
+            class="nav-toggle"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <nav aria-label="Mobile" class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a><a href="projects.html">Projects</a
+        ><a href="team.html">Our Team</a><a href="about.html">About</a
+        ><a aria-current="page" href="education.html">Insights</a
+        ><a href="field-notes.html">Field Updates</a
+        ><a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <a
+      class="whatsapp-btn"
+      href="https://wa.me/17324296629?text=Hello%20Meridian%20Oil%20and%20Gas"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Contact Meridian on WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M16.04 2.67A13.25 13.25 0 0 0 4.6 22.6L2.67 29.33l6.9-1.81a13.3 13.3 0 1 0 6.47-24.85Zm0 24.2a11 11 0 0 1-5.6-1.53l-.4-.24-4.1 1.08 1.1-4-.26-.42a10.95 10.95 0 1 1 9.26 5.11Zm6.02-8.2c-.33-.17-1.95-.96-2.25-1.07-.3-.11-.52-.17-.74.17-.22.33-.85 1.07-1.04 1.29-.19.22-.39.25-.72.08-.33-.17-1.4-.52-2.66-1.65-.98-.87-1.65-1.95-1.84-2.28-.19-.33-.02-.51.14-.68.15-.15.33-.39.5-.58.17-.19.22-.33.33-.55.11-.22.06-.41-.03-.58-.08-.17-.74-1.79-1.01-2.45-.27-.65-.54-.56-.74-.57l-.63-.01c-.22 0-.58.08-.88.41-.3.33-1.15 1.12-1.15 2.73s1.18 3.17 1.35 3.39c.17.22 2.31 3.53 5.6 4.95.78.34 1.39.54 1.87.69.79.25 1.51.21 2.08.13.63-.09 1.95-.8 2.23-1.57.27-.77.27-1.43.19-1.57-.08-.14-.3-.22-.63-.39Z"
+        />
+      </svg>
+    </a>
+
+    <main id="main">
+      <section class="page-banner education-banner">
+        <div class="content-shell" data-reveal="">
+          <span class="overline gold">THE MERIDIAN KNOWLEDGE CENTER</span>
+          <h1>Energy <em>Insights.</em></h1>
+          <p>
+            Explore original articles on petroleum geology, oilfield operations,
+            energy markets and the well-development process.
+          </p>
+        </div>
+      </section>
+      <section class="section-pad education-wrapper">
+        <div class="content-shell">
+          <div class="education-controls">
+            <label class="search-box"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                aria-label="Search energy articles"
+                id="articleSearch"
+                placeholder="Search energy topics..."
+                type="search"
+            /></label>
+            <div
+              aria-label="Filter education content"
+              class="filter-row"
+              role="group"
+            >
+              <button
+                aria-pressed="true"
+                class="filter-chip active"
+                data-filter="all"
+              >
+                All topics</button
+              ><button
+                aria-pressed="false"
+                class="filter-chip"
+                data-filter="fundamentals"
+              >
+                Fundamentals</button
+              ><button
+                aria-pressed="false"
+                class="filter-chip"
+                data-filter="development"
+              >
+                Development</button
+              ><button
+                aria-pressed="false"
+                class="filter-chip"
+                data-filter="operations"
+              >
+                Operations
+              </button>
+            </div>
+          </div>
+          <div class="article-list" id="articleList">
+            <article
+              class="article-entry article-tile"
+              data-category="fundamentals"
+              data-search="why oil and natural gas still matter the role of hydrocarbons in transportation, manufacturing, heating and a changing energy mix. energy &amp; society fundamentals"
+              id="energy-everyday"
+            >
+              <a
+                class="article-tile-link"
+                href="article-why-energy-matters.html"
+                ><div class="article-tile-img">
+                  <img
+                    alt="Illustrative visual for Why oil and natural gas still matter"
+                    loading="lazy"
+                    src="assets/tanks-clean.webp"
+                  />
+                </div>
+                <div class="article-tile-body">
+                  <span class="overline"
+                    >ENERGY &amp; SOCIETY · 6 MIN READ</span
+                  >
+                  <h2>Why oil and natural gas still matter</h2>
+                  <p>
+                    The role of hydrocarbons in transportation, manufacturing,
+                    heating and a changing energy mix.
+                  </p>
+                  <span class="text-arrow">Read article <span>↗</span></span>
+                </div></a
+              >
+            </article>
+            <article
+              class="article-entry article-tile"
+              data-category="development"
+              data-search="from prospect to producing well what takes place between a subsurface target and the first barrel of saleable oil. development basics development"
+              id="how-wells-work"
+            >
+              <a
+                class="article-tile-link"
+                href="article-how-oil-wells-work.html"
+                ><div class="article-tile-img">
+                  <img
+                    alt="Illustrative visual for From prospect to producing well"
+                    loading="lazy"
+                    src="assets/rigone-clean.webp"
+                  />
+                </div>
+                <div class="article-tile-body">
+                  <span class="overline">DEVELOPMENT BASICS · 7 MIN READ</span>
+                  <h2>From prospect to producing well</h2>
+                  <p>
+                    What takes place between a subsurface target and the first
+                    barrel of saleable oil.
+                  </p>
+                  <span class="text-arrow">Read article <span>↗</span></span>
+                </div></a
+              >
+            </article>
+            <article
+              class="article-entry article-tile"
+              data-category="fundamentals"
+              data-search="understanding reservoirs and geology a clear guide to porous rock, fluid flow, traps, well logs and reservoir uncertainty. under the surface fundamentals"
+              id="reservoir"
+            >
+              <a
+                class="article-tile-link"
+                href="article-reservoirs-and-geology.html"
+                ><div class="article-tile-img">
+                  <img
+                    alt="Illustrative visual for Understanding reservoirs and geology"
+                    loading="lazy"
+                    src="assets/geology-source.webp"
+                  />
+                </div>
+                <div class="article-tile-body">
+                  <span class="overline">UNDER THE SURFACE · 6 MIN READ</span>
+                  <h2>Understanding reservoirs and geology</h2>
+                  <p>
+                    A clear guide to porous rock, fluid flow, traps, well logs
+                    and reservoir uncertainty.
+                  </p>
+                  <span class="text-arrow">Read article <span>↗</span></span>
+                </div></a
+              >
+            </article>
+            <article
+              class="article-entry article-tile"
+              data-category="operations"
+              data-search="produced water and responsible operations why water handling is essential to well performance, costs and regulatory compliance. field operations operations"
+              id="water"
+            >
+              <a class="article-tile-link" href="article-produced-water.html"
+                ><div class="article-tile-img">
+                  <img
+                    alt="Illustrative visual for Produced water and responsible operations"
+                    loading="lazy"
+                    src="assets/aerial-clean.webp"
+                  />
+                </div>
+                <div class="article-tile-body">
+                  <span class="overline">FIELD OPERATIONS · 5 MIN READ</span>
+                  <h2>Produced water and responsible operations</h2>
+                  <p>
+                    Why water handling is essential to well performance, costs
+                    and regulatory compliance.
+                  </p>
+                  <span class="text-arrow">Read article <span>↗</span></span>
+                </div></a
+              >
+            </article>
+            <article
+              class="article-entry article-tile"
+              data-category="fundamentals"
+              data-search="what moves crude oil prices? a practical overview of supply, demand, inventories, location differentials and uncertainty. energy markets fundamentals"
+              id="markets"
+            >
+              <a class="article-tile-link" href="article-crude-oil-markets.html"
+                ><div class="article-tile-img">
+                  <img
+                    alt="Illustrative visual for What moves crude oil prices?"
+                    loading="lazy"
+                    src="assets/fieldpump-clean.webp"
+                  />
+                </div>
+                <div class="article-tile-body">
+                  <span class="overline">ENERGY MARKETS · 6 MIN READ</span>
+                  <h2>What moves crude oil prices?</h2>
+                  <p>
+                    A practical overview of supply, demand, inventories,
+                    location differentials and uncertainty.
+                  </p>
+                  <span class="text-arrow">Read article <span>↗</span></span>
+                </div></a
+              >
+            </article>
+            <article
+              class="article-entry article-tile"
+              data-category="operations"
+              data-search="the well lifecycle after first oil well tests are a beginning, not a substitute for sustained production management. long-term operations operations"
+              id="lifecycle"
+            >
+              <a
+                class="article-tile-link"
+                href="article-life-after-first-oil.html"
+                ><div class="article-tile-img">
+                  <img
+                    alt="Illustrative visual for The well lifecycle after first oil"
+                    loading="lazy"
+                    src="assets/pump-clean.webp"
+                  />
+                </div>
+                <div class="article-tile-body">
+                  <span class="overline"
+                    >LONG-TERM OPERATIONS · 6 MIN READ</span
+                  >
+                  <h2>The well lifecycle after first oil</h2>
+                  <p>
+                    Well tests are a beginning, not a substitute for sustained
+                    production management.
+                  </p>
+                  <span class="text-arrow">Read article <span>↗</span></span>
+                </div></a
+              >
+            </article>
+          </div>
+          <p class="no-results" hidden="" id="articleEmpty">
+            No articles matched your search. Try another topic.
+          </p>
+        </div>
+      </section>
+      <section class="glossary-section section-pad" id="glossary">
+        <div class="content-shell">
+          <div class="center-heading" data-reveal="">
+            <span class="overline gold">QUICK REFERENCE</span>
+            <h2 class="display-heading">The field <em>glossary.</em></h2>
+          </div>
+          <div class="glossary-grid">
+            <details>
+              <summary>Working interest <span>+</span></summary>
+              <p>
+                An ownership interest that generally bears a share of
+                exploration, drilling and operating costs and receives a share
+                of production after applicable burdens. Specific rights depend
+                on binding agreements.
+              </p>
+            </details>
+            <details>
+              <summary>Net revenue interest <span>+</span></summary>
+              <p>
+                The share of production revenue attributable to an interest
+                after royalty and other applicable revenue burdens, before
+                various expenses. It is distinct from working interest.
+              </p>
+            </details>
+            <details>
+              <summary>BOPD <span>+</span></summary>
+              <p>
+                Barrels of oil per day, a production rate. A test rate or
+                projection is not the same as sustained production.
+              </p>
+            </details>
+            <details>
+              <summary>Completion <span>+</span></summary>
+              <p>
+                The work that prepares a drilled wellbore to flow or produce,
+                potentially including perforating, tubing, lift equipment and
+                testing.
+              </p>
+            </details>
+            <details>
+              <summary>Wilcox formation <span>+</span></summary>
+              <p>
+                A group of sedimentary rocks found in parts of the Gulf Coast
+                region, including Louisiana, with intervals that can serve as
+                petroleum reservoirs.
+              </p>
+            </details>
+            <details>
+              <summary>Workover <span>+</span></summary>
+              <p>
+                Intervention on an existing well to repair, maintain or modify
+                well equipment or attempt to address production issues.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="newsletter-section" id="subscribe">
+        <div class="content-shell newsletter-layout">
+          <div class="newsletter-heading" data-reveal="">
+            <span class="overline gold">THE MERIDIAN DISPATCH</span>
+            <h2>Stay informed.<br /><em>Stay curious.</em></h2>
+            <p>
+              Receive occasional field notes, original energy explainers and
+              corporate news. No securities offerings or investment promotions.
+            </p>
+          </div>
+          <form
+            action="/thank-you.html"
+            class="subscribe-form"
+            data-netlify="true"
+            data-reveal=""
+            method="POST"
+            name="meridian-dispatch"
+            netlify-honeypot="bot-field"
+          >
+            <input name="form-name" type="hidden" value="meridian-dispatch" />
+            <p class="sr-only">
+              <label
+                >Leave this blank <input autocomplete="off" name="bot-field"
+              /></label>
+            </p>
+            <label class="form-field-label" for="subscribeEmail"
+              >YOUR EMAIL ADDRESS</label
+            >
+            <div class="subscribe-row">
+              <input
+                autocomplete="email"
+                id="subscribeEmail"
+                maxlength="254"
+                name="email"
+                placeholder="you@example.com"
+                required=""
+                type="email"
+              /><button class="btn btn-gold" type="submit">
+                Join the dispatch <span>↗</span>
+              </button>
+            </div>
+            <label class="check-label"
+              ><input
+                name="email_consent"
+                required=""
+                type="checkbox"
+                value="yes"
+              /><span
+                >I consent to occasional Meridian corporate and energy-education
+                emails and understand I can unsubscribe at any time. See our
+                <a href="privacy.html">Privacy Policy</a>.</span
+              ></label
+            >
+            <p class="form-fine">
+              Subscribing does not grant access to confidential securities
+              offerings or establish an investor relationship.
+            </p>
+            <p class="demo-alert" hidden="">
+              Preview only — subscriber storage activates after the website is
+              deployed and configured.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-main content-shell">
+        <!-- BRAND -->
+        <div class="footer-brand">
+          <a href="index.html" aria-label="Meridian Oil and Gas home">
+            <img
+              src="assets/meridian-logo-light.svg"
+              alt="Meridian Oil & Gas"
+              width="270"
+              height="77"
+              loading="lazy"
+            />
+          </a>
+
+          <p>
+            Thoughtful onshore development.<br />
+            Factual field progress. Clear energy education.
+          </p>
+
+          <!-- SOCIAL MEDIA -->
+          <div class="footer-socials" aria-label="Social media links">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="21"
+                height="21"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+              </svg>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="21"
+                height="21"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5.2 3.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4ZM3.3 9.3h3.8v11.2H3.3V9.3Zm6.1 0H13v1.5h.1a4 4 0 0 1 3.6-1.9c3.9 0 4.6 2.5 4.6 5.6v6h-3.8v-5.3c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.4H9.4V9.3Z"
+                />
+              </svg>
+            </a>
+
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="21"
+                height="21"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v1.9H7v3.1h2.8v8h3.7Z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- COMPANY LINKS -->
+        <div class="footer-column">
+          <strong>Company</strong>
+
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="about.html">About Meridian</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="operations.html">Operations</a>
+        </div>
+
+        <!-- EXPLORE LINKS -->
+        <div class="footer-column">
+          <strong>Explore</strong>
+
+          <a href="education.html">Energy Insights</a>
+          <a href="article-how-oil-wells-work.html">How wells work</a>
+          <a href="article-why-energy-matters.html">
+            Energy in everyday life
+          </a>
+          <a href="education.html#glossary">Energy glossary</a>
+        </div>
+
+        <!-- CONTACT LINKS -->
+        <div class="footer-column">
+          <strong>Connect</strong>
+
+          <a href="mailto:sales@meridianoilandgas.com">
+            sales@meridianoilandgas.com
+          </a>
+
+          <a href="tel:+17324296629"> +1 (732) 429-6629 </a>
+
+          <a href="contact.html">Business inquiries</a>
+          <a href="privacy.html">Privacy &amp; email policy</a>
+          <a href="legal.html">Legal notice</a>
+        </div>
+      </div>
+
+      <!-- FOOTER BOTTOM -->
+      <div class="footer-bottom content-shell">
+        <span> © 2026 Meridian Oil &amp; Gas, LLC · Texas, USA </span>
+
+        <span>
+          Corporate information only. No offer of securities.
+          <a href="legal.html">Legal notice</a>
+        </span>
+      </div>
+    </footer>
+    <script defer="" src="assets/site.js"></script>
+  </body>
+</html>
