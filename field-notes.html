@@ -29,6 +29,7 @@
 
     <header class="site-header" id="siteHeader">
       <div class="header-inner">
+        <!-- LOGO -->
         <a
           class="site-logo"
           href="index.html"
@@ -42,22 +43,28 @@
           />
         </a>
 
-        <nav class="desktop-nav" aria-label="Primary">
-          <a href="index.html">Home</a>
+        <!-- DESKTOP NAVIGATION -->
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page">Home</a>
           <a href="projects.html">Projects</a>
           <a href="team.html">Our Team</a>
           <a href="about.html">About</a>
           <a href="education.html">Insights</a>
-          <a href="field-notes.html" aria-current="page">Field Updates</a>
+          <a href="field-notes.html">Field Updates</a>
         </nav>
 
+        <!-- HEADER ACTIONS -->
         <div class="nav-actions">
+          <!-- DESKTOP CONTACT -->
           <a class="header-contact" href="contact.html">
             Contact <span aria-hidden="true">↗</span>
           </a>
 
+          <!-- MOBILE MENU BUTTON -->
           <button
             class="nav-toggle"
+            id="navToggle"
+            type="button"
             aria-controls="mobileNav"
             aria-expanded="false"
             aria-label="Open navigation menu"
@@ -69,14 +76,15 @@
         </div>
       </div>
 
-      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+      <!-- MOBILE NAVIGATION -->
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="team.html">Our Team</a>
         <a href="about.html">About</a>
         <a href="education.html">Insights</a>
-        <a href="field-notes.html" aria-current="page">Field Updates</a>
-        <a href="contact.html">Contact</a>
+        <a href="field-notes.html">Field Updates</a>
+        <a href="contact.html">Contact ↗</a>
       </nav>
     </header>
     <a

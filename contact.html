@@ -24,41 +24,62 @@
     <div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
     <header class="site-header" id="siteHeader">
       <div class="header-inner">
+        <!-- LOGO -->
         <a
-          aria-label="Meridian Oil and Gas home"
           class="site-logo"
           href="index.html"
-          ><img
-            alt="Meridian Oil &amp; Gas"
-            height="91"
+          aria-label="Meridian Oil and Gas home"
+        >
+          <img
             src="assets/meridian-logo-light.svg"
+            alt="Meridian Oil & Gas"
             width="318"
-        /></a>
-        <nav aria-label="Primary" class="desktop-nav">
-          <a href="index.html">Home</a><a href="projects.html">Projects</a
-          ><a href="team.html">Our Team</a><a href="about.html">About</a
-          ><a href="education.html">Insights</a
-          ><a href="field-notes.html">Field Updates</a>
+            height="91"
+          />
+        </a>
+
+        <!-- DESKTOP NAVIGATION -->
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Our Team</a>
+          <a href="about.html">About</a>
+          <a href="education.html">Insights</a>
+          <a href="field-notes.html">Field Updates</a>
         </nav>
+
+        <!-- HEADER ACTIONS -->
         <div class="nav-actions">
-          <a class="header-contact" href="contact.html"
-            >Contact <span aria-hidden="true">↗</span></a
-          ><button
+          <!-- DESKTOP CONTACT -->
+          <a class="header-contact" href="contact.html">
+            Contact <span aria-hidden="true">↗</span>
+          </a>
+
+          <!-- MOBILE MENU BUTTON -->
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            type="button"
             aria-controls="mobileNav"
             aria-expanded="false"
             aria-label="Open navigation menu"
-            class="nav-toggle"
           >
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
-      <nav aria-label="Mobile" class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a><a href="projects.html">Projects</a
-        ><a href="team.html">Our Team</a><a href="about.html">About</a
-        ><a href="education.html">Insights</a
-        ><a href="field-notes.html">Field Updates</a
-        ><a href="contact.html">Contact</a>
+
+      <!-- MOBILE NAVIGATION -->
+      <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="team.html">Our Team</a>
+        <a href="about.html">About</a>
+        <a href="education.html">Insights</a>
+        <a href="field-notes.html">Field Updates</a>
+        <a href="contact.html">Contact ↗</a>
       </nav>
     </header>
 
