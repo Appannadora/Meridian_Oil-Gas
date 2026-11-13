@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 :root {
     --navy: #071b2d;
@@ -13,8 +13,9 @@
     --white: #fff;
     --line: #d9dfdb;
     --max: 1320px;
-    --heading: Georgia, 'Times New Roman', serif;
-    --body: 'DM Sans', Arial, sans-serif
+    /* SINGLE CONSISTENT FONT SYSTEM */
+    --heading: 'Manrope', 'DM Sans', Arial, sans-serif;
+    --body: 'Manrope', 'DM Sans', Arial, sans-serif;
 }
 
 * {
@@ -134,10 +135,6 @@ p {
    HEADER
 ========================================= */
 
-/* =========================================
-   MERIDIAN HEADER — CLEAN RESPONSIVE DESIGN
-========================================= */
-
 .site-header {
     position: fixed;
     top: 0;
@@ -157,8 +154,6 @@ p {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* HEADER INNER */
-
 .header-inner {
     width: min(1500px, calc(100% - 80px));
     min-height: 98px;
@@ -173,8 +168,6 @@ p {
 .site-header.scrolled .header-inner {
     min-height: 80px;
 }
-
-/* LOGO */
 
 .site-logo {
     display: flex;
@@ -196,8 +189,6 @@ p {
 .site-header.scrolled .site-logo img {
     max-height: 60px;
 }
-
-/* DESKTOP NAVIGATION */
 
 .desktop-nav {
     display: flex;
@@ -231,8 +222,6 @@ p {
     background: rgba(241, 201, 120, 0.1);
 }
 
-/* CONTACT BUTTON */
-
 .nav-actions {
     display: flex;
     align-items: center;
@@ -263,18 +252,11 @@ p {
     transform: translateY(-2px);
 }
 
-/* MOBILE ELEMENTS HIDDEN ON DESKTOP */
-
 .nav-toggle,
 .mobile-nav,
 .mobile-cta {
     display: none;
 }
-
-
-/* =========================================
-   TABLET AND MOBILE
-========================================= */
 
 @media (max-width: 1050px) {
 
@@ -293,14 +275,10 @@ p {
         max-height: 58px;
     }
 
-    /* Hide desktop navigation */
-
     .desktop-nav,
     .header-contact {
         display: none !important;
     }
-
-    /* Navigation button */
 
     .nav-toggle {
         display: flex;
@@ -331,8 +309,6 @@ p {
         pointer-events: none;
     }
 
-    /* Hamburger animation */
-
     .nav-toggle[aria-expanded="true"] span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
@@ -344,8 +320,6 @@ p {
     .nav-toggle[aria-expanded="true"] span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-
-    /* Mobile dropdown */
 
     .mobile-nav {
         display: none;
@@ -397,8 +371,6 @@ p {
         border-bottom: none;
     }
 
-    /* Mobile CTA */
-
     .mobile-cta {
         display: inline-flex;
         align-items: center;
@@ -416,11 +388,6 @@ p {
         border-radius: 40px;
     }
 }
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
 
 @media (max-width: 600px) {
 
@@ -468,11 +435,6 @@ p {
     }
 }
 
-
-/* =========================================
-   EXTRA SMALL MOBILE
-========================================= */
-
 @media (max-width: 360px) {
 
     .header-inner {
@@ -496,9 +458,6 @@ p {
     }
 }
 
-
-/* ACCESSIBILITY */
-
 @media (prefers-reduced-motion: reduce) {
 
     .site-header,
@@ -508,7 +467,6 @@ p {
         transition: none;
     }
 }
-
 
 /* =====================================
    OIL WELL SCROLL ANIMATION
@@ -828,7 +786,7 @@ p {
 }
 
 .display-heading {
-    font: 400 clamp(40px, 4.5vw, 71px)/1.09 var(--heading);
+    font: 500 clamp(40px, 4.5vw, 71px)/1.09 var(--heading);
     letter-spacing: -0.034em;
     color: #474c4e;
     margin: 25px 0;
@@ -838,7 +796,7 @@ p {
 .page-banner h1 em,
 .hero-home h1 em,
 .newsletter-heading h2 em {
-    font-weight: 400;
+    font-weight: 500;
     color: #bb8f3e;
     font-style: italic;
 }
@@ -974,7 +932,7 @@ p {
 }
 
 .hero-home h1 {
-    font: 400 clamp(54px, 5.65vw, 91px)/1.07 var(--heading);
+    font: 500 clamp(54px, 5.65vw, 91px)/1.07 var(--heading);
     color: white;
     letter-spacing: -0.055em;
     margin: 37px 0 32px;
@@ -1274,7 +1232,7 @@ p {
 }
 
 .process-tab b {
-    font: 400 27px var(--heading);
+    font: 500 27px var(--heading);
     color: var(--gold);
 }
 
@@ -1304,7 +1262,7 @@ p {
 }
 
 .process-detail h3 {
-    font: 400 clamp(35px, 3vw, 52px)/1.1 var(--heading);
+    font: 500 clamp(35px, 3vw, 52px)/1.1 var(--heading);
     margin: 0 0 20px;
 }
 
@@ -1495,7 +1453,7 @@ p {
 }
 
 .editorial-card h3 {
-    font: 400 27px/1.22 var(--heading);
+    font: 500 27px/1.22 var(--heading);
     margin-bottom: 13px;
 }
 
@@ -1571,7 +1529,7 @@ p {
 }
 
 .field-note-feature h3 {
-    font: 400 clamp(27px, 3vw, 44px)/1.2 var(--heading);
+    font: 500 clamp(27px, 3vw, 44px)/1.2 var(--heading);
     color: white;
 }
 
@@ -1609,7 +1567,7 @@ p {
 }
 
 .newsletter-heading h2 {
-    font: 400 clamp(39px, 4vw, 65px)/1.08 var(--heading);
+    font: 500 clamp(39px, 4vw, 65px)/1.08 var(--heading);
     letter-spacing: -0.035em;
     margin: 22px 0;
 }
@@ -1777,7 +1735,7 @@ p {
 }
 
 .page-banner h1 {
-    font: 400 clamp(55px, 5.7vw, 91px)/1.07 var(--heading);
+    font: 500 clamp(55px, 5.7vw, 91px)/1.07 var(--heading);
     letter-spacing: -0.05em;
     color: white;
     margin: 24px 0;
@@ -1887,7 +1845,7 @@ p {
 }
 
 .values-grid h3 {
-    font: 400 30px/1.16 var(--heading);
+    font: 500 30px/1.16 var(--heading);
 }
 
 .values-grid p {
@@ -1927,7 +1885,7 @@ p {
 }
 
 .leader-card h3 {
-    font: 400 35px var(--heading);
+    font: 500 35px var(--heading);
     color: var(--ink);
     margin: 8px 0 14px;
 }
@@ -1950,7 +1908,7 @@ p {
     border-radius: 50%;
     background: #d9c8a5;
     color: var(--navy);
-    font: 400 52px var(--heading);
+    font: 500 52px var(--heading);
 }
 
 /* =====================================
@@ -2005,7 +1963,7 @@ p {
 }
 
 .operation-facts h3 {
-    font: 400 33px var(--heading);
+    font: 500 33px var(--heading);
     margin-bottom: 30px;
 }
 
@@ -2194,7 +2152,7 @@ p {
 }
 
 .approach-step h3 {
-    font: 400 clamp(27px, 3vw, 43px) var(--heading);
+    font: 500 clamp(27px, 3vw, 43px) var(--heading);
     margin: 0 0 12px;
 }
 
@@ -2309,7 +2267,7 @@ p {
 }
 
 .article-entry h2 {
-    font: 400 clamp(32px, 3vw, 48px)/1.18 var(--heading);
+    font: 500 clamp(32px, 3vw, 48px)/1.18 var(--heading);
     margin-bottom: 13px;
 }
 
@@ -2465,7 +2423,7 @@ p {
 }
 
 .note-entry h2 {
-    font: 400 clamp(33px, 3.3vw, 50px)/1.17 var(--heading);
+    font: 500 clamp(33px, 3.3vw, 50px)/1.17 var(--heading);
     max-width: 800px;
     margin-bottom: 22px;
 }
@@ -2491,7 +2449,7 @@ p {
 }
 
 .notes-context h3 {
-    font: 400 34px var(--heading);
+    font: 500 34px var(--heading);
     margin: 19px 0;
 }
 
@@ -2608,7 +2566,7 @@ p {
 }
 
 .legal-copy h2 {
-    font: 400 30px var(--heading);
+    font: 500 30px var(--heading);
     color: var(--ink);
     margin: 34px 0 12px;
 }
@@ -3208,7 +3166,7 @@ p {
 }
 
 .project-detail-copy h2 {
-    font: 400 clamp(38px, 4.3vw, 64px)/1.09 var(--heading);
+    font: 500 clamp(38px, 4.3vw, 64px)/1.09 var(--heading);
     margin: 15px 0 25px;
 }
 
@@ -3230,7 +3188,7 @@ p {
 }
 
 .project-detail-copy h3 {
-    font: 400 27px var(--heading);
+    font: 500 27px var(--heading);
     margin: 35px 0 12px;
     color: inherit;
 }
@@ -3366,7 +3324,7 @@ p {
 }
 
 .featured-project-copy h3 {
-    font: 400 37px/1.15 var(--heading);
+    font: 500 37px/1.15 var(--heading);
     margin: 13px 0;
     color: white;
 }
@@ -3436,7 +3394,7 @@ p {
 }
 
 .leadership-intro h2 {
-    font: 400 clamp(48px, 5vw, 76px) var(--heading);
+    font: 500 clamp(48px, 5vw, 76px) var(--heading);
     line-height: 1.08;
     letter-spacing: -2px;
     color: #dbe7ef;
@@ -3580,7 +3538,6 @@ p {
     margin-top: 5px;
 }
 
-/* LEADERSHIP SECTION - CLEANUP */
 .homepage-team {
     background: #fafaf6 !important;
     background-image: none !important;
@@ -3755,7 +3712,7 @@ p {
 }
 
 .article-tile-body h2 {
-    font: 400 29px/1.19 var(--heading);
+    font: 500 29px/1.19 var(--heading);
     margin: 18px 0 10px;
     cursor: inherit;
 }
@@ -3818,7 +3775,7 @@ p {
 }
 
 .reading-hero h1 {
-    font: 400 clamp(49px, 6vw, 90px)/1.05 var(--heading);
+    font: 500 clamp(49px, 6vw, 90px)/1.05 var(--heading);
     margin: 24px 0;
 }
 
@@ -3863,7 +3820,7 @@ p {
 }
 
 .reading-copy .reading-lead {
-    font: 400 27px/1.55 var(--heading);
+    font: 500 27px/1.55 var(--heading);
     color: #102e42;
     margin: 0 0 50px;
 }
@@ -3873,7 +3830,7 @@ p {
 }
 
 .reading-section h2 {
-    font: 400 34px/1.2 var(--heading);
+    font: 500 34px/1.2 var(--heading);
     margin: 0 0 17px;
     color: #0c2638;
 }
@@ -3892,7 +3849,7 @@ p {
 }
 
 .reading-sources h3 {
-    font: 400 24px var(--heading);
+    font: 500 24px var(--heading);
     margin-bottom: 16px;
 }
 
@@ -4269,7 +4226,7 @@ p {
 
 .featured-projects .display-heading em {
     color: #cba45e;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-weight: 400;
 }
 
@@ -4632,7 +4589,7 @@ p {
 
 .process-section .display-heading em {
     color: #cba45e;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-weight: 400;
 }
 
@@ -5245,7 +5202,7 @@ p {
 
 .team-initial {
     color: #d8b775;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-size: 76px;
     font-weight: 600;
     letter-spacing: -5px;
@@ -5720,7 +5677,7 @@ p {
 .newsletter-heading h2 {
     margin: 22px 0;
     color: #f4f1e9;
-    font-family: inherit;
+    font-family: var(--heading);
     font-size: clamp(40px, 5.5vw, 66px);
     line-height: 1.05;
     font-weight: 500;
@@ -5729,7 +5686,7 @@ p {
 
 .newsletter-heading h2 em {
     color: #d8b775;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-weight: 400;
 }
 
@@ -6157,7 +6114,7 @@ p {
 
 .homepage-team .team-intro .display-heading em {
     color: #d8b775 !important;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-weight: 400;
     text-shadow: 0 0 35px rgba(216, 183, 117, 0.13);
 }
@@ -6336,7 +6293,7 @@ p {
 
 .homepage-team .team-initial {
     color: #e1c58c !important;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-size: 86px !important;
     font-weight: 500;
     letter-spacing: -7px;
@@ -6681,7 +6638,7 @@ p {
 .team-hero h1 {
     margin: 0;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(62px, 7.5vw, 108px);
     font-weight: 500;
     line-height: 0.98;
@@ -6728,7 +6685,7 @@ p {
 
 .team-side-number {
     color: rgba(255, 255, 255, 0.15);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 110px;
     line-height: 1;
 }
@@ -6787,7 +6744,7 @@ p {
 .team-section-heading h2 {
     margin: 0;
     color: var(--team-navy);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(39px, 4.3vw, 58px);
     font-weight: 500;
     line-height: 1.12;
@@ -6878,7 +6835,7 @@ p {
 
 .leader-initials {
     color: rgba(255, 255, 255, 0.13);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(130px, 17vw, 220px);
     font-weight: 500;
     line-height: 1;
@@ -6932,7 +6889,7 @@ p {
 .leader-information h3 {
     margin: 25px 0 7px;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(43px, 5vw, 68px);
     font-weight: 500;
     line-height: 1.05;
@@ -7033,7 +6990,7 @@ p {
 
 .member-index {
     color: #a1a8a8;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 22px;
 }
 
@@ -7057,7 +7014,7 @@ p {
 
 .member-photo-placeholder>span {
     color: rgba(255, 255, 255, 0.35);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 90px;
     line-height: 1;
 }
@@ -7088,7 +7045,7 @@ p {
 .member-information h3 {
     margin: 0 0 6px;
     color: var(--team-navy);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 30px;
     font-weight: 500;
     line-height: 1.15;
@@ -7143,7 +7100,7 @@ p {
     border: 1px solid var(--team-gold);
     border-radius: 50%;
     color: #a98249;
-    font-family: Georgia, serif;
+    font-family: var(--heading);
     font-size: 16px;
 }
 
@@ -7186,7 +7143,7 @@ p {
 .team-contact-inner h2 {
     margin: 0;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(36px, 4.5vw, 58px);
     font-weight: 500;
     line-height: 1.1;
@@ -7519,7 +7476,7 @@ p {
 .field-hero h1 {
     margin: 0;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(60px, 7.3vw, 100px);
     font-weight: 500;
     line-height: 0.99;
@@ -7566,7 +7523,7 @@ p {
 
 .field-aside-number {
     color: rgba(255, 255, 255, 0.14);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 120px;
     line-height: 1;
 }
@@ -7626,7 +7583,7 @@ p {
 .field-intro-layout h2 {
     margin: 0;
     color: var(--field-navy);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(42px, 4.5vw, 60px);
     font-weight: 500;
     line-height: 1.12;
@@ -7671,7 +7628,7 @@ p {
 .field-section-heading h2 {
     margin: 0;
     color: var(--field-navy);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(38px, 4.3vw, 56px);
     font-weight: 500;
     line-height: 1.1;
@@ -7724,7 +7681,7 @@ p {
 
 .field-date-day {
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 100px;
     font-weight: 500;
     line-height: 0.9;
@@ -7784,7 +7741,7 @@ p {
 .field-update-main>h3 {
     margin: 30px 0 18px;
     color: var(--field-navy);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(35px, 4vw, 49px);
     font-weight: 500;
     line-height: 1.13;
@@ -7809,14 +7766,14 @@ p {
 
 .field-detail-number {
     color: var(--field-gold);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 22px;
 }
 
 .field-update-detail h4 {
     margin: 0 0 9px;
     color: var(--field-navy);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 23px;
     font-weight: 500;
 }
@@ -7868,7 +7825,7 @@ p {
 .field-context-heading h2 {
     margin: 0;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(42px, 5vw, 64px);
     font-weight: 500;
     line-height: 1.08;
@@ -7923,14 +7880,14 @@ p {
     border: 1px solid rgba(196, 154, 90, 0.55);
     border-radius: 50%;
     color: var(--field-gold);
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 15px;
 }
 
 .field-milestone-card h3 {
     margin: 0 0 13px;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 22px;
     font-weight: 500;
     line-height: 1.25;
@@ -7993,7 +7950,7 @@ p {
 .field-newsletter-heading h2 {
     margin: 0;
     color: #fff;
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(45px, 5vw, 65px);
     font-weight: 500;
     line-height: 1.05;
@@ -8525,7 +8482,6 @@ p {
     }
 }
 
-
 /* MOBILE HEADER */
 
 @media (max-width: 1050px) {
@@ -8612,59 +8568,41 @@ p {
    FIX FOR PROJECTS PAGE OVERFLOW & GRID
    ========================================= */
 
-/* 1. Ensure the main container never overflows the viewport */
 .content-shell {
     width: min(var(--max), calc(100% - 32px));
-    /* Reduced padding for mobile */
     margin-inline: auto;
     box-sizing: border-box;
-    /* Ensures padding is included in width */
 }
 
-/* 2. Fix the Two-Column Intro Grid (The main culprit in your screenshot) */
 .two-col-intro {
     display: grid;
-    /* Change from 0.9fr 1.1fr to a single column on mobile */
     grid-template-columns: 1fr;
     gap: 30px;
-    /* Reduce gap from 75px to something manageable */
     align-items: start;
 }
 
-/* 3. Fix the Project Detail Grid (Another likely issue) */
 .project-detail-grid {
     display: grid;
     grid-template-columns: 1fr;
-    /* Stack columns on mobile */
     gap: 40px;
 }
 
-/* 4. Fix the Project Visual height on mobile */
 .project-visual {
     height: 400px;
-    /* Adjust height so it doesn't take up too much vertical space */
     width: 100%;
 }
 
-/* 5. Ensure images and text don't break out of their containers */
 .project-detail-copy p,
 .project-detail-copy h2,
 .project-detail-copy h3 {
     max-width: 100%;
     overflow-wrap: break-word;
-    /* Prevents long words from breaking layout */
 }
 
-/* 6. Fix the specific "Shirley Wells" text block shown in the screenshot */
-/* Assuming this is inside a grid or flex container, ensure it has space */
 .project-detail-grid>div {
     min-width: 0;
-    /* Crucial: prevents grid items from overflowing their container */
 }
 
-/* =========================================
-   RESPONSIVE BREAKPOINT FOR TABLETS & MOBILE
-   ========================================= */
 @media (max-width: 900px) {
     .two-col-intro {
         grid-template-columns: 1fr;
@@ -8678,14 +8616,12 @@ p {
 
     .project-detail-grid.reverse .project-visual {
         order: 0;
-        /* Reset order so image is always on top */
     }
 
     .project-visual {
         height: 350px;
     }
 
-    /* Ensure the text section in your screenshot has proper padding */
     .project-detail-copy {
         padding-right: 0;
     }
@@ -8694,12 +8630,10 @@ p {
 @media (max-width: 600px) {
     .content-shell {
         width: calc(100% - 24px);
-        /* Tighter margins on very small screens */
     }
 
     .project-detail-copy h2 {
         font-size: 32px;
-        /* Scale down heading size */
     }
 
     .project-detail-copy p {
@@ -8709,7 +8643,6 @@ p {
 
     .project-visual {
         height: 280px;
-        /* Shorter image on small phones */
     }
 }
 
@@ -8719,25 +8652,18 @@ p {
 
 @media (max-width: 900px) {
 
-    /* 1. Fix for "Long-term development planning" section */
     .next-development-layout {
         display: grid;
         grid-template-columns: 1fr !important;
-        /* Forces stacking */
         gap: 30px;
-        /* Reduces the massive gap */
     }
 
-    /* 2. Fix for the "About Project Information" disclaimer section */
     .project-disclosure .content-shell {
         display: grid;
         grid-template-columns: 1fr !important;
-        /* Forces stacking */
         gap: 15px;
-        /* Reduces gap between title and text */
     }
 
-    /* 3. Make sure the text blocks have room to breathe and don't get squished */
     .next-development-layout>div,
     .project-disclosure .content-shell>div {
         min-width: 0;
@@ -8745,17 +8671,14 @@ p {
     }
 }
 
-/* Extra tweaks for small phones */
 @media (max-width: 600px) {
     .next-development h2 {
         font-size: 32px;
-        /* Scales down the huge heading */
     }
 
     .next-development p,
     .project-disclosure p {
         font-size: 14px;
-        /* Makes the paragraph text readable */
         line-height: 1.6;
     }
 }
@@ -8766,27 +8689,20 @@ p {
 
 @media (max-width: 900px) {
 
-    /* 1. Force the reading layout to stack into a single column */
     .reading-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
-        /* Stacks sidebar and content */
         gap: 40px !important;
-        /* Space between sidebar and text */
     }
 
-    /* 2. Fix the sticky sidebar so it behaves normally on mobile */
     .reading-grid aside {
         position: static !important;
-        /* Removes the sticky behavior */
         padding: 20px !important;
         background: #eae7df;
-        /* Adds a slight background so it stands out */
         border-radius: 8px;
         border-top: 3px solid #c79e4d;
     }
 
-    /* 3. Ensure the main article text is full width and readable */
     .reading-copy {
         width: 100% !important;
         max-width: 100% !important;
@@ -8794,7 +8710,6 @@ p {
 
     .reading-copy .reading-lead {
         font-size: 20px !important;
-        /* Scales down the large intro text */
         line-height: 1.5 !important;
     }
 
@@ -8808,7 +8723,6 @@ p {
     }
 }
 
-/* Extra small phone adjustments */
 @media (max-width: 600px) {
     .reading-hero {
         min-height: 400px !important;
@@ -8836,7 +8750,6 @@ p {
 
 @media (max-width: 900px) {
 
-    /* 1. Force article cards to stack in ONE column instead of 2 or 3 */
     #articleList,
     .editorial-cards {
         display: grid !important;
@@ -8844,21 +8757,17 @@ p {
         gap: 24px !important;
     }
 
-    /* 2. Ensure the article images don't stretch weirdly */
     .article-tile-img {
         height: 240px !important;
     }
 
-    /* 3. Fix the overlapping text inside the cards */
     .article-tile-body {
         padding: 24px 20px !important;
         display: flex;
         flex-direction: column;
         min-height: auto !important;
-        /* Remove fixed height that might cause overlapping */
     }
 
-    /* 4. Let the text wrap naturally instead of being crushed */
     .article-tile-body h2,
     .editorial-card h3 {
         font-size: 26px !important;
@@ -8866,7 +8775,6 @@ p {
         margin-bottom: 15px !important;
         overflow-wrap: break-word !important;
         word-wrap: break-word !important;
-        /* Reset any absolute positioning that might be breaking the layout */
         position: relative !important;
     }
 
@@ -8877,7 +8785,6 @@ p {
         margin-bottom: 20px !important;
     }
 
-    /* 5. Fix the filter buttons at the top so they don't overflow */
     .filter-row {
         gap: 8px !important;
     }
@@ -8887,7 +8794,6 @@ p {
         font-size: 10px !important;
     }
 }
-
 
 /* =========================================
    TEAM PROFILE IMAGES
@@ -8942,7 +8848,6 @@ p {
     color: var(--ink, #132b3d);
 }
 
-/* PAGE BANNER */
 .why-banner {
     background: linear-gradient(90deg, #071a2a 0%, rgba(7, 26, 42, 0.92) 55%, rgba(7, 26, 42, 0.7)), radial-gradient(circle at 80% 50%, #2b4a5e, transparent 40%), linear-gradient(120deg, #071a2a, #123448);
     min-height: 500px;
@@ -8952,9 +8857,9 @@ p {
 }
 
 .why-banner h1 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(52px, 6vw, 86px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.05em;
     color: #fff;
@@ -8974,7 +8879,6 @@ p {
     line-height: 1.85;
 }
 
-/* INTRO */
 .why-intro-section {
     background: var(--paper, #faf9f5);
 }
@@ -9000,7 +8904,6 @@ p {
     color: #5d6c78;
 }
 
-/* TABLES */
 .why-table-section {
     background: #f1efe8;
     padding-top: 0;
@@ -9060,7 +8963,6 @@ p {
     line-height: 1.7;
 }
 
-/* DETAIL SECTIONS */
 .why-detail-section {
     padding: 95px 0;
 }
@@ -9109,9 +9011,9 @@ p {
 }
 
 .why-detail-copy h2 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(34px, 4vw, 52px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.1;
     letter-spacing: -1.5px;
     margin-bottom: 22px;
@@ -9147,7 +9049,6 @@ p {
     color: #1d3a48;
 }
 
-/* STAT CARDS */
 .why-visual {
     display: flex;
     flex-direction: column;
@@ -9171,7 +9072,7 @@ p {
 }
 
 .stat-card .value {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 30px;
     font-weight: 500;
     color: var(--gold-deep, #aa7928);
@@ -9194,7 +9095,6 @@ p {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* CALLOUT */
 .callout {
     background: #fdf6e7;
     border-left: 4px solid var(--gold, #d9ad58);
@@ -9219,7 +9119,6 @@ p {
     color: var(--gold, #d9ad58);
 }
 
-/* SUMMARY */
 .why-summary-section {
     background: #0a2032;
     padding: 90px 0;
@@ -9245,9 +9144,9 @@ p {
 }
 
 .why-summary-card h2 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(34px, 4vw, 52px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.1;
     color: #fff;
     margin-bottom: 22px;
@@ -9266,7 +9165,6 @@ p {
     margin: 0;
 }
 
-/* WHY OIL & GAS */
 .why-oil-gas-section {
     background: var(--paper, #faf9f5);
 }
@@ -9287,9 +9185,9 @@ p {
 }
 
 .section-heading-centered h2 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(36px, 4vw, 54px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.1;
     letter-spacing: -1.5px;
     margin-bottom: 18px;
@@ -9350,13 +9248,12 @@ p {
     margin-bottom: 16px;
 }
 
-/* TAX SECTION */
 .why-tax-section {
     background: #f1efe8;
 }
 
 .why-subheading {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 26px;
     font-weight: 500;
     color: #0f2a3a;
@@ -9391,7 +9288,6 @@ p {
     color: var(--gold-deep, #aa7928);
 }
 
-/* DISCLAIMER */
 .disclaimer {
     background: #eae7df;
     border: 1px solid #d4cfc4;
@@ -9410,10 +9306,6 @@ p {
 .disclaimer strong {
     color: #3d4f5a;
 }
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
 
 @media (max-width: 1000px) {
     .why-intro-section .two-col-intro {
@@ -9515,7 +9407,6 @@ p {
     }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 
     .why-page *,
@@ -9539,14 +9430,12 @@ p {
 
     .nav-toggle {
         display: none !important;
-        /* Hides the hamburger if menu is always open */
     }
 }
 
 /* FIX FOR MOBILE NAVBAR */
 @media (max-width: 1050px) {
 
-    /* Hide the mobile menu by default */
     .mobile-nav {
         display: none !important;
         position: absolute;
@@ -9560,12 +9449,10 @@ p {
         z-index: 1005;
     }
 
-    /* Show the mobile menu ONLY when the .open class is added by JS */
     .mobile-nav.open {
         display: flex !important;
     }
 
-    /* Make sure the links have proper spacing */
     .mobile-nav a {
         display: block;
         padding: 15px 0;
@@ -9575,7 +9462,6 @@ p {
         font-size: 15px;
     }
 
-    /* Style the hamburger button */
     .nav-toggle {
         display: flex !important;
         flex-direction: column;
@@ -9602,13 +9488,11 @@ p {
    PROJECTS PAGE — MERGED (ORIGINAL + EB-5)
    ========================================= */
 
-/* BASE PAGE VARIABLES & OVERRIDES */
 .projects-page {
     background: var(--paper, #faf9f5);
     color: var(--ink, #132b3d);
 }
 
-/* PAGE BANNER */
 .projects-banner {
     background: linear-gradient(90deg, #071a2a 0%, rgba(7, 26, 42, 0.92) 55%, rgba(7, 26, 42, 0.75)), radial-gradient(circle at 80% 50%, #2b4a5e, transparent 40%), linear-gradient(120deg, #071a2a, #123448);
     min-height: 500px;
@@ -9618,9 +9502,9 @@ p {
 }
 
 .projects-banner h1 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(48px, 5.5vw, 80px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.04em;
     color: #fff;
@@ -9640,7 +9524,6 @@ p {
     line-height: 1.85;
 }
 
-/* EB-5 INTRO */
 .project-introduction {
     background: var(--paper, #faf9f5);
 }
@@ -9683,7 +9566,7 @@ p {
 }
 
 .eb5-stat .value {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 24px;
     color: var(--gold-deep, #aa7928);
     font-weight: 600;
@@ -9697,7 +9580,6 @@ p {
     line-height: 1.4;
 }
 
-/* PROGRAM STRUCTURE */
 .projects-structure-section {
     background: #f1efe8;
 }
@@ -9718,9 +9600,9 @@ p {
 }
 
 .section-heading-centered h2 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: clamp(36px, 4vw, 54px);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.1;
     letter-spacing: -1.5px;
     margin-bottom: 18px;
@@ -9764,7 +9646,7 @@ p {
 }
 
 .sub-venture-card h3 {
-    font-family: var(--heading, Georgia, serif);
+    font-family: var(--heading);
     font-size: 24px;
     color: #0f2a3a;
     margin-bottom: 5px;
@@ -9776,7 +9658,6 @@ p {
     margin: 0;
 }
 
-/* STRUCTURE FLOW DIAGRAM */
 .structure-flow {
     max-width: 500px;
     margin: 0 auto;
@@ -9871,7 +9752,6 @@ p {
     margin-bottom: 4px;
 }
 
-/* GEOLOGY SECTION */
 .projects-geology-section {
     background: #0a2032;
     color: #fff;
@@ -9899,19 +9779,16 @@ p {
 
 @media (max-width: 900px) {
 
-    /* 1. Force the grid to stack vertically */
     .project-detail-grid {
         display: flex !important;
         flex-direction: column !important;
         gap: 30px !important;
     }
 
-    /* 2. Reset the reverse order so images are always on top */
     .project-detail-grid.reverse .project-visual {
         order: 0 !important;
     }
 
-    /* 3. Ensure the text container takes full width and doesn't clip */
     .project-detail-copy {
         width: 100% !important;
         max-width: 100% !important;
@@ -9919,16 +9796,13 @@ p {
         overflow: visible !important;
     }
 
-    /* 4. Make sure the image fits properly */
     .project-visual {
         width: 100% !important;
         height: 300px !important;
     }
 
-    /* 5. Fix the Specs grid (PROGRAM, THIRD WELL OBJECTIVE, etc.) */
     .project-specs {
         grid-template-columns: 1fr !important;
-        /* Stack specs on top of each other */
         gap: 15px !important;
         width: 100% !important;
     }
@@ -9937,7 +9811,6 @@ p {
         width: 100% !important;
     }
 
-    /* 6. Ensure text wraps properly */
     .project-detail-copy h2,
     .project-detail-copy p,
     .project-detail-copy h3 {
@@ -9953,7 +9826,6 @@ p {
 
 @media (max-width: 900px) {
 
-    /* 1. Force ALL grids to single columns */
     .two-col-intro,
     .project-detail-grid,
     .oswego-layout,
@@ -9968,12 +9840,10 @@ p {
         max-width: 100% !important;
     }
 
-    /* 2. Fix the Image/Text Order */
     .project-detail-grid.reverse {
         flex-direction: column !important;
     }
 
-    /* 3. Ensure text doesn't overlap */
     .project-detail-copy,
     .oswego-copy,
     .project-specs,
@@ -9985,24 +9855,20 @@ p {
         word-wrap: break-word !important;
     }
 
-    /* 4. Fix the massive blank space at the top */
     .projects-banner {
         min-height: auto !important;
         padding: 120px 0 60px !important;
     }
 
-    /* 5. Fix the Sub-Ventures (Cards should be full width) */
     .sub-venture-card {
         width: 100% !important;
         margin-bottom: 10px !important;
     }
 
-    /* 6. Fix the Program Structure Diagram */
     .structure-flow {
         padding: 20px !important;
     }
 
-    /* 7. Scale down massive headings */
     .display-heading,
     .projects-banner h1,
     .project-detail-copy h2 {
@@ -10010,10 +9876,1179 @@ p {
         line-height: 1.2 !important;
     }
 
-    /* 8. Fix tables so they don't break the screen */
     .table-responsive {
         overflow-x: auto !important;
         display: block !important;
         width: 100% !important;
     }
+}
+
+/* ============================================================
+   PROJECTS PAGE — ADDITIONS (paste directly, no reset/body/root)
+   ============================================================ */
+
+/* ---------- Utility (safe, scoped to classes only) ---------- */
+.content-shell {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(1.1rem, 4vw, 2.6rem);
+}
+
+.section-pad {
+    padding: clamp(3.2rem, 7vw, 6rem) 0;
+}
+
+.overline {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #a8b8c8;
+    margin-bottom: 1rem;
+}
+
+.overline.gold {
+    color: #d4b043;
+}
+
+.display-heading {
+    margin-bottom: 1.1rem;
+    max-width: 22ch;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.18;
+    font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+    letter-spacing: -0.01em;
+}
+
+.display-heading em {
+    font-style: italic;
+    color: #e0c26a;
+}
+
+.section-heading-centered {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(2.2rem, 4vw, 3.4rem);
+}
+
+.section-heading-centered .display-heading {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading-centered p {
+    color: #a8b8c8;
+    font-size: 1.02rem;
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #c9a227, #e0c26a);
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 9999;
+    background: #c9a227;
+    color: #071a2a;
+    padding: 0.8rem 1.4rem;
+    font-weight: 700;
+    border-radius: 0 0 8px 0;
+}
+
+.skip:focus {
+    left: 0;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 26, 42, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.18);
+}
+
+.site-header.scrolled {
+    background: rgba(7, 26, 42, 0.99);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.header-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(1.1rem, 4vw, 2.6rem);
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.4rem;
+}
+
+.site-logo img {
+    width: clamp(170px, 22vw, 250px);
+    height: auto;
+}
+
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.7rem, 1.6vw, 1.5rem);
+}
+
+.desktop-nav a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #d6dee6;
+    padding: 0.4rem 0;
+    position: relative;
+    text-decoration: none;
+}
+
+.desktop-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #d4b043;
+    transition: width 0.32s ease;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a[aria-current="page"]::after {
+    width: 100%;
+}
+
+.desktop-nav a[aria-current="page"] {
+    color: #e0c26a;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-contact {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #071a2a;
+    background: #d4b043;
+    padding: 0.62rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.header-contact:hover {
+    background: #e0c26a;
+    color: #071a2a;
+    transform: translateY(-1px);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(201, 162, 39, 0.4);
+    background: none;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #e0c26a;
+    border-radius: 2px;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: #0a2236;
+    border-top: 1px solid rgba(201, 162, 39, 0.2);
+    padding: 1rem clamp(1.1rem, 4vw, 2.6rem) 1.6rem;
+}
+
+.mobile-nav a {
+    padding: 0.85rem 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #d6dee6;
+    text-decoration: none;
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+    color: #e0c26a;
+}
+
+.mobile-nav.open {
+    display: flex;
+}
+
+/* ---------- WHATSAPP ---------- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1500;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #25d366;
+    color: #ffffff;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-btn svg {
+    width: 30px;
+    height: 30px;
+}
+
+/* ---------- PAGE BANNER ---------- */
+.page-banner {
+    position: relative;
+    padding: clamp(4rem, 9vw, 7.5rem) 0 clamp(3.4rem, 7vw, 6rem);
+    background:
+        radial-gradient(ellipse at 20% 0%, rgba(201, 162, 39, 0.12), transparent 55%),
+        radial-gradient(ellipse at 85% 100%, rgba(46, 95, 134, 0.28), transparent 60%),
+        linear-gradient(160deg, #071a2a 0%, #0d2a42 60%, #112f4a 100%);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.14);
+    overflow: hidden;
+}
+
+.projects-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(90deg,
+            rgba(255, 255, 255, 0.015) 0px,
+            rgba(255, 255, 255, 0.015) 1px,
+            transparent 1px,
+            transparent 80px);
+    pointer-events: none;
+}
+
+.page-banner .content-shell {
+    position: relative;
+    z-index: 1;
+}
+
+.page-banner h1 {
+    max-width: 16ch;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.18;
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    letter-spacing: -0.01em;
+}
+
+.page-banner h1 em {
+    font-style: italic;
+    color: #e0c26a;
+}
+
+.page-banner p {
+    max-width: 60ch;
+    color: #a8b8c8;
+    font-size: clamp(1rem, 1.5vw, 1.12rem);
+}
+
+/* ---------- EB-5 INTRO ---------- */
+.project-introduction {
+    background: #071a2a;
+}
+
+.two-col-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+}
+
+.two-col-intro .display-heading {
+    max-width: 18ch;
+}
+
+.intro-lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.18rem);
+    color: #f5f1e8;
+    line-height: 1.62;
+    margin-bottom: 1.1rem;
+}
+
+.two-col-intro>div:last-child>p:not(.intro-lead) {
+    color: #a8b8c8;
+}
+
+.eb5-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1.8rem;
+}
+
+.eb5-stat {
+    background: linear-gradient(150deg, #112f4a, #0d2a42);
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    border-radius: 8px;
+    padding: 1.15rem 1.1rem;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.eb5-stat:hover {
+    border-color: rgba(201, 162, 39, 0.55);
+    transform: translateY(-2px);
+}
+
+.eb5-stat .value {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+    color: #e0c26a;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+}
+
+.eb5-stat .label {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: #a8b8c8;
+    letter-spacing: 0.02em;
+}
+
+/* ---------- EB-5 VIDEO SECTION ---------- */
+.eb5-video-section {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(201, 162, 39, 0.08), transparent 60%),
+        linear-gradient(180deg, #0a2236 0%, #071a2a 100%);
+    border-top: 1px solid rgba(201, 162, 39, 0.12);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.12);
+}
+
+.video-embed-wrapper {
+    position: relative;
+    max-width: 940px;
+    margin: 0 auto;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #112f4a;
+    border: 1px solid rgba(201, 162, 39, 0.28);
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+}
+
+.video-embed-wrapper::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+.video-embed-wrapper video,
+.video-embed-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #0a2236;
+    border: none;
+}
+
+.video-caption {
+    max-width: 720px;
+    margin: 1.25rem auto 0;
+    text-align: center;
+    font-size: 0.78rem;
+    color: #a8b8c8;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* ---------- PROGRAM STRUCTURE ---------- */
+.projects-structure-section {
+    background: #0a2236;
+    border-top: 1px solid rgba(201, 162, 39, 0.1);
+}
+
+.sub-ventures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.1rem;
+    margin-bottom: clamp(2.4rem, 5vw, 3.8rem);
+}
+
+.sub-venture-card {
+    background: linear-gradient(155deg, #112f4a, #0d2a42);
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    border-radius: 8px;
+    padding: 1.5rem 1.3rem;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sub-venture-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 162, 39, 0.6);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+}
+
+.sub-number {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: #d4b043;
+    margin-bottom: 0.6rem;
+}
+
+.sub-venture-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    color: #ffffff;
+    margin-bottom: 0.45rem;
+    font-weight: 400;
+}
+
+.sub-venture-card p {
+    font-size: 0.86rem;
+    color: #a8b8c8;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.structure-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.flow-step,
+.flow-box,
+.flow-final {
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+}
+
+.flow-step {
+    background: #c9a227;
+    color: #071a2a;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.flow-step span {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(7, 26, 42, 0.7);
+}
+
+.flow-step strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    color: #071a2a;
+    font-weight: 700;
+}
+
+.flow-arrow {
+    font-size: 1.3rem;
+    color: #d4b043;
+    line-height: 1;
+    padding: 0.15rem 0;
+}
+
+.flow-box {
+    background: #112f4a;
+    border: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.flow-box h4 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.02rem;
+    color: #ffffff;
+    margin-bottom: 0.2rem;
+    font-weight: 400;
+}
+
+.flow-box p {
+    font-size: 0.78rem;
+    color: #a8b8c8;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.flow-box.dark-box {
+    background: linear-gradient(150deg, #1a3d5c, #112f4a);
+    border-color: rgba(201, 162, 39, 0.5);
+}
+
+.flow-final {
+    background: #d4b043;
+    color: #071a2a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.structure-notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 2.4rem;
+    margin-top: 2.2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid rgba(201, 162, 39, 0.16);
+}
+
+.structure-notes p {
+    font-size: 0.86rem;
+    color: #a8b8c8;
+    margin: 0;
+}
+
+.structure-notes strong {
+    color: #e0c26a;
+}
+
+/* ---------- GEOLOGY ---------- */
+.projects-geology-section {
+    background:
+        radial-gradient(ellipse at 80% 10%, rgba(46, 95, 134, 0.2), transparent 55%),
+        #071a2a;
+}
+
+.geology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: clamp(2.4rem, 5vw, 3.6rem);
+}
+
+.geology-card {
+    background: linear-gradient(160deg, #0d2a42, #0a2236);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+    border-radius: 8px;
+    padding: 1.7rem 1.4rem;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.geology-card:hover {
+    border-color: rgba(201, 162, 39, 0.55);
+    transform: translateY(-3px);
+}
+
+.geology-card .stat-value {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+    color: #e0c26a;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+}
+
+.geology-card .stat-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #f5f1e8;
+    line-height: 1.45;
+    margin-bottom: 0.7rem;
+}
+
+.geology-card p {
+    font-size: 0.84rem;
+    color: #a8b8c8;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(201, 162, 39, 0.22);
+    background: #0a2236;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+}
+
+.table-responsive thead th {
+    background: #112f4a;
+    color: #e0c26a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.95rem 1.1rem;
+    border-bottom: 1px solid rgba(201, 162, 39, 0.35);
+    white-space: nowrap;
+}
+
+.table-responsive tbody td {
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: #d6dee6;
+    vertical-align: top;
+}
+
+.table-responsive tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-responsive tbody tr:hover {
+    background: rgba(201, 162, 39, 0.05);
+}
+
+.table-responsive tbody td strong {
+    color: #ffffff;
+}
+
+.table-total td {
+    background: rgba(201, 162, 39, 0.08);
+    border-top: 1px solid rgba(201, 162, 39, 0.4);
+    color: #edd88f;
+    font-weight: 600;
+}
+
+.table-total td strong {
+    color: #e0c26a;
+}
+
+.table-caption {
+    margin-top: 1rem;
+    font-size: 0.76rem;
+    color: #a8b8c8;
+    line-height: 1.5;
+    font-style: italic;
+    max-width: 78ch;
+}
+
+/* ---------- VENTURE 1 & 2 DETAIL BANDS ---------- */
+.project-detail-band {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: #071a2a;
+    border-top: 1px solid rgba(201, 162, 39, 0.1);
+}
+
+.project-detail-light {
+    background: #0a2236;
+    border-top: 1px solid rgba(201, 162, 39, 0.14);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.14);
+}
+
+.project-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+}
+
+.project-detail-grid.reverse .project-visual {
+    order: 2;
+}
+
+.project-visual {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+    aspect-ratio: 4 / 3;
+    background: #112f4a;
+}
+
+.project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.project-visual:hover img {
+    transform: scale(1.04);
+}
+
+.photo-label {
+    position: absolute;
+    bottom: 0.7rem;
+    left: 0.7rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    background: rgba(7, 26, 42, 0.6);
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.project-detail-copy .overline {
+    margin-bottom: 0.7rem;
+}
+
+.project-detail-copy h2 {
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    line-height: 1.18;
+    font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.project-detail-copy h2 em {
+    color: #e0c26a;
+    font-style: italic;
+}
+
+.project-lead {
+    font-size: 1.02rem;
+    color: #f5f1e8;
+    line-height: 1.62;
+    margin-bottom: 1.5rem;
+}
+
+.project-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.9rem;
+    margin-bottom: 1.6rem;
+    padding: 1.1rem;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(201, 162, 39, 0.16);
+    border-radius: 8px;
+}
+
+.project-specs div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.project-specs small {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #d4b043;
+}
+
+.project-specs strong {
+    font-size: 0.88rem;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.project-detail-copy h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.18rem;
+    color: #ffffff;
+    margin-bottom: 0.6rem;
+    margin-top: 0.3rem;
+    font-weight: 400;
+}
+
+.project-detail-copy p {
+    color: #a8b8c8;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+}
+
+.project-fine {
+    font-size: 0.8rem !important;
+    color: #a8b8c8;
+    font-style: italic;
+    border-left: 2px solid rgba(201, 162, 39, 0.4);
+    padding-left: 0.9rem;
+    margin-top: 1rem;
+}
+
+.text-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #e0c26a;
+    margin-top: 0.5rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.18s ease;
+    text-decoration: none;
+}
+
+.text-arrow:hover {
+    border-bottom-color: #e0c26a;
+    color: #edd88f;
+}
+
+.text-arrow span {
+    transition: transform 0.18s ease;
+}
+
+.text-arrow:hover span {
+    transform: translateX(3px);
+}
+
+/* ---------- OSWEGO ---------- */
+.projects-oswego-section {
+    background:
+        radial-gradient(ellipse at 15% 50%, rgba(201, 162, 39, 0.07), transparent 55%),
+        #071a2a;
+    border-top: 1px solid rgba(201, 162, 39, 0.12);
+}
+
+.oswego-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+}
+
+.oswego-copy .display-heading {
+    max-width: 18ch;
+}
+
+.oswego-copy>p {
+    color: #a8b8c8;
+    font-size: 1rem;
+    margin-bottom: 1.4rem;
+    max-width: 56ch;
+}
+
+.oswego-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.oswego-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #a8b8c8;
+}
+
+.oswego-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d4b043;
+}
+
+.oswego-list li strong {
+    color: #ffffff;
+}
+
+.oswego-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(201, 162, 39, 0.18);
+}
+
+.oswego-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.oswego-details span {
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4b043;
+}
+
+.oswego-details strong {
+    font-size: 0.88rem;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.oswego-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.oswego-image-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 480px;
+    border-radius: 14px;
+    border: 1px dashed rgba(201, 162, 39, 0.35);
+    background:
+        linear-gradient(135deg, rgba(201, 162, 39, 0.06), transparent 60%),
+        #0d2a42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.oswego-image-placeholder span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.1rem;
+    color: #e0c26a;
+    letter-spacing: 0.04em;
+}
+
+/* ---------- IMPORTANT NOTICES ---------- */
+.project-disclosure {
+    background: #0a2236;
+    border-top: 1px solid rgba(201, 162, 39, 0.2);
+    padding: clamp(2.4rem, 5vw, 3.6rem) 0;
+}
+
+.project-disclosure .content-shell>strong {
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #d4b043;
+    margin-bottom: 1rem;
+}
+
+.project-disclosure p {
+    font-size: 0.84rem;
+    line-height: 1.68;
+    color: #a8b8c8;
+    max-width: 90ch;
+    margin-bottom: 0.9rem;
+}
+
+.project-disclosure p.small-note {
+    font-size: 0.76rem;
+    color: rgba(168, 184, 200, 0.75);
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    background: #071a2a;
+    border-top: 1px solid rgba(201, 162, 39, 0.16);
+    padding-top: clamp(2.8rem, 5vw, 4rem);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: clamp(1.8rem, 4vw, 3.4rem);
+    padding-bottom: clamp(2.2rem, 4vw, 3.2rem);
+}
+
+.footer-brand img {
+    width: 270px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    font-size: 0.86rem;
+    color: #a8b8c8;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.footer-socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    color: #e0c26a;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.footer-socials a:hover {
+    background: #c9a227;
+    color: #071a2a;
+    border-color: #c9a227;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.footer-column strong {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #d4b043;
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    font-size: 0.84rem;
+    color: #a8b8c8;
+    text-decoration: none;
+    transition: color 0.18s ease;
+    line-height: 1.5;
+}
+
+.footer-column a:hover {
+    color: #e0c26a;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.76rem;
+    color: #7f8fa0;
+}
+
+.footer-bottom a {
+    color: #e0c26a;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #edd88f;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .header-contact {
+        display: none;
+    }
+
+    .two-col-intro,
+    .project-detail-grid,
+    .oswego-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail-grid.reverse .project-visual {
+        order: 0;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-inner {
+        height: 72px;
+    }
+
+    .page-banner {
+        padding: 3.2rem 0 2.6rem;
+    }
+
+    .page-banner h1 {
+        font-size: clamp(1.7rem);
+    }
+}
+
+.oswego-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(201, 162, 39, 0.35);
+    background: #0d2a42;
+    display: block;
 }
