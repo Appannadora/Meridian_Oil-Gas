@@ -3,8 +3,12 @@
   "use strict";
 
   /* =====================================
-     HEADER, SCROLL PROGRESS & MOBILE NAV
+     GLOBAL SETTINGS & HELPERS
   ===================================== */
+
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const header = document.getElementById("siteHeader");
   const progress = document.getElementById("scrollProgress");
@@ -15,14 +19,52 @@
   const depthLabel = document.getElementById("depthLabel");
   const oilSplash = document.getElementById("oilSplash");
 
-  // Update header, progress bar and oil animation
+  const desktopLinks = Array.from(
+    document.querySelectorAll(".desktop-nav a")
+  );
+
+  const mobileLinks = mobile
+    ? Array.from(mobile.querySelectorAll("a"))
+    : [];
+
+  const allNavLinks = [...desktopLinks, ...mobileLinks];
+
+  function normalizePath(path) {
+    let clean = path.split("?")[0].split("#")[0];
+
+    clean = clean.replace(/\/+$/, "");
+
+    if (!clean || clean === "/") {
+      return "index.html";
+    }
+
+    return clean.split("/").pop().toLowerCase();
+  }
+
+  function getLinkTarget(link) {
+    try {
+      const url = new URL(link.getAttribute("href"), window.location.href);
+      return {
+        path: normalizePath(url.pathname),
+        hash: url.hash
+      };
+    } catch (error) {
+      return null;
+    }
+  }
+
+
+  /* =====================================
+     HEADER SCROLL & PROGRESS
+  ===================================== */
+
   function updateScroll() {
     const y = window.scrollY || window.pageYOffset || 0;
 
-    // Header scroll effect
-    header?.classList.toggle("scrolled", y > 35);
+    if (header) {
+      header.classList.toggle("scrolled", y > 35);
+    }
 
-    // Scroll progress
     const max =
       document.documentElement.scrollHeight - window.innerHeight;
 
@@ -34,13 +76,15 @@
       progress.style.width = scrollProgress + "%";
     }
 
-    // Oil well scroll animation
+    /* Oil well scroll animation */
+
     if (wellPipe && depthLabel) {
       const scrollAmount = max > 0
         ? Math.min(Math.max(y / max, 0), 1)
         : 0;
 
       const maxPipeHeight = 280;
+
       const pipeHeight = Math.round(
         scrollAmount * maxPipeHeight
       );
@@ -54,13 +98,11 @@
       depthLabel.textContent =
         depthFt.toLocaleString() + " FT";
 
-      // Oil splash effect
       if (oilSplash) {
-        if (scrollAmount > 0.02) {
-          oilSplash.classList.add("active");
-        } else {
-          oilSplash.classList.remove("active");
-        }
+        oilSplash.classList.toggle(
+          "active",
+          scrollAmount > 0.02
+        );
       }
     }
   }
@@ -75,21 +117,101 @@
 
 
   /* =====================================
-     MOBILE NAVIGATION
+     NAVIGATION - ACTIVE PAGE HIGHLIGHT
+  ===================================== */
+
+  function setActivePage() {
+    const currentPage = normalizePath(window.location.pathname);
+
+    allNavLinks.forEach((link) => {
+      const target = getLinkTarget(link);
+
+      if (!target) return;
+
+      const isActive = target.path === currentPage;
+
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  setActivePage();
+
+
+  /* =====================================
+     NAVIGATION - ACTIVE SECTION HIGHLIGHT
+     Works with #about, #projects, #contact etc.
+  ===================================== */
+
+  const sectionLinks = allNavLinks.filter((link) => {
+    const target = getLinkTarget(link);
+
+    return target &&
+      target.path === normalizePath(window.location.pathname) &&
+      target.hash &&
+      target.hash.length > 1;
+  });
+
+  const trackedSections = sectionLinks
+    .map((link) => {
+      const target = getLinkTarget(link);
+
+      if (!target) return null;
+
+      return document.querySelector(target.hash);
+    })
+    .filter(Boolean);
+
+  function setActiveSection(id) {
+    sectionLinks.forEach((link) => {
+      const target = getLinkTarget(link);
+
+      if (!target) return;
+
+      const isActive = target.hash === "#" + id;
+
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  if (
+    trackedSections.length &&
+    "IntersectionObserver" in window
+  ) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleSections.length) {
+          setActiveSection(visibleSections[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-25% 0px -60% 0px",
+        threshold: [0, 0.1, 0.25, 0.5, 0.75]
+      }
+    );
+
+    trackedSections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  }
+
+
+  /* =====================================
+     MOBILE NAVIGATION - SINGLE HANDLER
   ===================================== */
 
   if (navToggle && mobile) {
-
-    function closeMobileNav() {
-      mobile.classList.remove("open");
-
-      navToggle.setAttribute("aria-expanded", "false");
-
-      navToggle.setAttribute(
-        "aria-label",
-        "Open navigation menu"
-      );
-    }
 
     function openMobileNav() {
       mobile.classList.add("open");
@@ -100,70 +222,101 @@
         "aria-label",
         "Close navigation menu"
       );
+
+      mobile.setAttribute("aria-hidden", "false");
+
+      if ("inert" in mobile) {
+        mobile.inert = false;
+      }
     }
 
-    // Hamburger button
-    navToggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    function closeMobileNav() {
+      mobile.classList.remove("open");
 
-      const isExpanded =
-        navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", "false");
 
-      if (isExpanded) {
+      navToggle.setAttribute(
+        "aria-label",
+        "Open navigation menu"
+      );
+
+      mobile.setAttribute("aria-hidden", "true");
+
+      if ("inert" in mobile) {
+        mobile.inert = true;
+      }
+    }
+
+    function isMobileNavOpen() {
+      return mobile.classList.contains("open");
+    }
+
+    /* Set initial state */
+
+    if (isMobileNavOpen()) {
+      openMobileNav();
+    } else {
+      closeMobileNav();
+    }
+
+    /* Hamburger click */
+
+    navToggle.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (isMobileNavOpen()) {
         closeMobileNav();
       } else {
         openMobileNav();
       }
     });
 
-    // Mobile navigation links
-    mobile.querySelectorAll("a").forEach(function (link) {
+    /* Mobile navigation link click */
 
-      link.addEventListener("click", function () {
+    mobile.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
 
-        // Close menu and allow browser navigation
-        closeMobileNav();
+      if (!link) return;
 
-        // Do not use preventDefault here.
-      });
+      closeMobileNav();
 
+      // Do not preventDefault.
+      // Browser navigation must work normally.
     });
 
-    // Close menu when clicking outside header
-    document.addEventListener("click", function (event) {
+    /* Close when clicking outside */
 
-      if (
-        header &&
-        !header.contains(event.target) &&
-        mobile.classList.contains("open")
-      ) {
-        closeMobileNav();
-      }
+    document.addEventListener("click", (event) => {
+      if (!isMobileNavOpen()) return;
 
-    });
+      const clickedInsideHeader =
+        header && header.contains(event.target);
 
-    // Close menu with Escape key
-    document.addEventListener("keydown", function (e) {
-
-      if (
-        e.key === "Escape" &&
-        mobile.classList.contains("open")
-      ) {
+      if (!clickedInsideHeader) {
         closeMobileNav();
       }
-
     });
 
-    // Close menu when switching to desktop
-    window.addEventListener("resize", function () {
+    /* Escape key */
 
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        isMobileNavOpen()
+      ) {
+        closeMobileNav();
+        navToggle.focus();
+      }
+    });
+
+    /* Close when switching to desktop */
+
+    window.addEventListener("resize", () => {
       if (window.innerWidth > 1050) {
         closeMobileNav();
       }
-
     });
-
   }
 
 
@@ -171,23 +324,18 @@
      REVEAL ANIMATIONS
   ===================================== */
 
-  if ("IntersectionObserver" in window) {
+  const revealElements = document.querySelectorAll("[data-reveal]");
 
-    const ob = new IntersectionObserver(
-      (entries) => {
+  if ("IntersectionObserver" in window && !prefersReducedMotion) {
 
-        entries.forEach((e) => {
-
-          if (e.isIntersecting) {
-
-            e.target.classList.add("revealed");
-
-            ob.unobserve(e.target);
-
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
           }
-
         });
-
       },
       {
         threshold: 0.08,
@@ -195,14 +343,14 @@
       }
     );
 
-    document.querySelectorAll("[data-reveal]").forEach((el) => {
-      ob.observe(el);
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
     });
 
   } else {
 
-    document.querySelectorAll("[data-reveal]").forEach((el) => {
-      el.classList.add("revealed");
+    revealElements.forEach((element) => {
+      element.classList.add("revealed");
     });
 
   }
@@ -260,25 +408,31 @@
 
     tab.addEventListener("click", () => {
 
-      const st = steps[tab.dataset.step];
+      const step = steps[tab.dataset.step];
 
-      if (!st) return;
+      if (!step) return;
 
-      tabs.forEach((t) => {
+      tabs.forEach((item) => {
+        const isActive = item === tab;
 
-        const is = t === tab;
+        item.classList.toggle("selected", isActive);
 
-        t.classList.toggle("selected", is);
+        item.setAttribute(
+          "aria-selected",
+          String(isActive)
+        );
 
-        t.setAttribute("aria-selected", String(is));
-
-        t.setAttribute("tabindex", is ? "0" : "-1");
-
+        item.setAttribute(
+          "tabindex",
+          isActive ? "0" : "-1"
+        );
       });
 
       const detail = document.getElementById("process-detail");
 
-      detail?.setAttribute("aria-labelledby", tab.id);
+      if (detail && tab.id) {
+        detail.setAttribute("aria-labelledby", tab.id);
+      }
 
       const elements = [
         ["stepSymbol", "symbol"],
@@ -289,13 +443,11 @@
       ];
 
       elements.forEach(([id, key]) => {
+        const element = document.getElementById(id);
 
-        const el = document.getElementById(id);
-
-        if (el) {
-          el.textContent = st[key];
+        if (element) {
+          element.textContent = step[key];
         }
-
       });
 
     });
@@ -309,13 +461,13 @@
 
   const search = document.getElementById("articleSearch");
 
-  const filters = [
-    ...document.querySelectorAll(".filter-chip")
-  ];
+  const filters = Array.from(
+    document.querySelectorAll(".filter-chip")
+  );
 
-  const articles = [
-    ...document.querySelectorAll(".article-entry")
-  ];
+  const articles = Array.from(
+    document.querySelectorAll(".article-entry")
+  );
 
   const empty = document.getElementById("articleEmpty");
 
@@ -323,24 +475,35 @@
 
   function filterArticles() {
 
-    const q = (search?.value || "")
+    const query = (search?.value || "")
       .trim()
       .toLowerCase();
 
     let count = 0;
 
-    articles.forEach((a) => {
+    articles.forEach((article) => {
+
+      const articleCategory =
+        article.dataset.category || "";
+
+      const searchText = (
+        (article.dataset.search || "") +
+        " " +
+        article.textContent
+      ).toLowerCase();
+
+      const matchesCategory =
+        category === "all" ||
+        articleCategory === category;
+
+      const matchesSearch =
+        !query ||
+        searchText.includes(query);
 
       const visible =
-        (category === "all" ||
-          a.dataset.category === category) &&
-        (
-          !q ||
-          (a.dataset.search || "").toLowerCase().includes(q) ||
-          a.textContent.toLowerCase().includes(q)
-        );
+        matchesCategory && matchesSearch;
 
-      a.hidden = !visible;
+      article.hidden = !visible;
 
       if (visible) {
         count++;
@@ -354,19 +517,22 @@
 
   }
 
-  filters.forEach((b) => {
+  filters.forEach((button) => {
 
-    b.addEventListener("click", () => {
+    button.addEventListener("click", () => {
 
-      category = b.dataset.filter;
+      category = button.dataset.filter || "all";
 
-      filters.forEach((x) => {
+      filters.forEach((item) => {
 
-        const active = x === b;
+        const isActive = item === button;
 
-        x.classList.toggle("active", active);
+        item.classList.toggle("active", isActive);
 
-        x.setAttribute("aria-pressed", String(active));
+        item.setAttribute(
+          "aria-pressed",
+          String(isActive)
+        );
 
       });
 
@@ -384,38 +550,44 @@
   ===================================== */
 
   articles
-    .filter((a) => !a.classList.contains("article-tile"))
-    .forEach((a) => {
+    .filter((article) => {
+      return !article.classList.contains("article-tile");
+    })
+    .forEach((article) => {
 
-      const h = a.querySelector("h2");
+      const heading = article.querySelector("h2");
 
-      h?.setAttribute("role", "button");
+      if (!heading) return;
 
-      h?.setAttribute("tabindex", "0");
+      heading.setAttribute("role", "button");
+      heading.setAttribute("tabindex", "0");
 
-      h?.setAttribute(
+      heading.setAttribute(
         "aria-expanded",
-        String(a.classList.contains("expanded"))
+        String(article.classList.contains("expanded"))
       );
 
-      function toggle() {
+      function toggleArticle() {
 
-        const open = a.classList.toggle("expanded");
+        const isOpen = article.classList.toggle("expanded");
 
-        h?.setAttribute("aria-expanded", String(open));
+        heading.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
 
       }
 
-      h?.addEventListener("click", toggle);
+      heading.addEventListener("click", toggleArticle);
 
-      h?.addEventListener("keydown", (e) => {
+      heading.addEventListener("keydown", (event) => {
 
-        if (e.key === "Enter" || e.key === " ") {
-
-          e.preventDefault();
-
-          toggle();
-
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+          event.preventDefault();
+          toggleArticle();
         }
 
       });
@@ -427,12 +599,24 @@
      EDUCATION PAGE ARTICLE HASH
   ===================================== */
 
-  if (
-    location.hash &&
-    location.pathname.endsWith("education.html")
-  ) {
+  function openHashArticle() {
 
-    const target = document.querySelector(location.hash);
+    if (
+      !window.location.hash ||
+      !normalizePath(window.location.pathname).endsWith("education.html")
+    ) {
+      return;
+    }
+
+    let target;
+
+    try {
+      target = document.querySelector(
+        window.location.hash
+      );
+    } catch (error) {
+      return;
+    }
 
     if (target?.classList.contains("article-entry")) {
 
@@ -442,36 +626,48 @@
         .querySelector("h2")
         ?.setAttribute("aria-expanded", "true");
 
+      if (!prefersReducedMotion) {
+        setTimeout(() => {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 100);
+      }
+
     }
 
   }
+
+  openHashArticle();
+
+  window.addEventListener("hashchange", openHashArticle);
 
 
   /* =====================================
      NETLIFY DEMO FORM HANDLING
   ===================================== */
 
-  // Prevent users from believing local HTML form
-  // submissions are stored without a deployed backend.
-
-  if (location.protocol === "file:") {
+  if (window.location.protocol === "file:") {
 
     document
       .querySelectorAll('form[data-netlify]')
       .forEach((form) => {
 
-        form.addEventListener("submit", (e) => {
+        form.addEventListener("submit", (event) => {
 
-          e.preventDefault();
+          event.preventDefault();
 
-          const alert = form.querySelector(".demo-alert");
+          const alertElement =
+            form.querySelector(".demo-alert");
 
-          if (alert) {
+          if (alertElement) {
+            alertElement.hidden = false;
 
-            alert.hidden = false;
-
-            alert.setAttribute("role", "status");
-
+            alertElement.setAttribute(
+              "role",
+              "status"
+            );
           }
 
         });
@@ -480,119 +676,22 @@
 
   }
 
+
+  /* =====================================
+     FINAL INITIALIZATION
+  ===================================== */
+
+  // Make sure the active page is highlighted
+  // after all navigation elements are initialized.
+
+  setActivePage();
+
+  // Refresh scroll calculations after page load
+  // in case images or fonts change page height.
+
+  window.addEventListener("load", () => {
+    updateScroll();
+    setActivePage();
+  });
+
 })();
-/* =========================================
-   MOBILE NAV TOGGLE — reliable click handling
-   ========================================= */
-(function () {
-    var header = document.getElementById('siteHeader');
-    var toggle = document.querySelector('.nav-toggle');
-    var mobileNav = document.getElementById('mobileNav');
-
-    if (!header || !toggle || !mobileNav) return;
-
-    function openNav() {
-        mobileNav.classList.add('open');
-        toggle.setAttribute('aria-expanded', 'true');
-        toggle.setAttribute('aria-label', 'Close navigation menu');
-    }
-
-    function closeNav() {
-        mobileNav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-    }
-
-    /* Toggle open / close */
-    toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (mobileNav.classList.contains('open')) {
-            closeNav();
-        } else {
-            openNav();
-        }
-    });
-
-    /* Let link clicks navigate normally — just close the menu */
-    mobileNav.addEventListener('click', function (e) {
-        var link = e.target.closest('a');
-        if (link) {
-            /* DO NOT preventDefault — let browser navigate */
-            closeNav();
-            /* no stopPropagation either, so navigation is not blocked */
-        }
-    });
-
-    /* Close only when clicking truly outside the header/nav */
-    document.addEventListener('click', function (e) {
-        if (!mobileNav.classList.contains('open')) return;
-
-        var insideNav = mobileNav.contains(e.target);
-        var insideToggle = toggle.contains(e.target);
-        var insideHeader = header.contains(e.target);
-
-        if (insideNav || insideToggle || insideHeader) {
-            /* click originated inside the menu, toggle, or header → do nothing */
-            return;
-        }
-        closeNav();
-    });
-
-    /* Close on Escape */
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-            closeNav();
-        }
-    });
-
-    /* Close when resizing to desktop */
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 1050 && mobileNav.classList.contains('open')) {
-            closeNav();
-        }
-    });
-})();
-
-document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(link => {
-    link.addEventListener('click', function() {
-        // 1. Remove active state from ALL links
-        document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(l => {
-            l.removeAttribute('aria-current');
-        });
-        
-        // 2. Add active state to the clicked link
-        this.setAttribute('aria-current', 'page');
-    });
-});
-
-
-const navToggle = document.getElementById("navToggle");
-const mobileNav = document.getElementById("mobileNav");
-
-if (navToggle && mobileNav) {
-
-    navToggle.addEventListener("click", () => {
-
-        const isOpen =
-            navToggle.getAttribute("aria-expanded") === "true";
-
-        navToggle.setAttribute("aria-expanded", String(!isOpen));
-
-        navToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Open navigation menu" : "Close navigation menu"
-        );
-
-        mobileNav.classList.toggle("open", !isOpen);
-    });
-
-    mobileNav.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-            mobileNav.classList.remove("open");
-            navToggle.setAttribute("aria-expanded", "false");
-            navToggle.setAttribute("aria-label", "Open navigation menu");
-        });
-    });
-
-}

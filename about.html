@@ -1,69 +1,121 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="#071a2a" name="theme-color" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071a2a" />
+
     <meta
-      content="About Meridian Oil &amp; Gas, a Texas-based company focused on disciplined onshore energy development."
       name="description"
-    />
-    <meta content="website" property="og:type" />
-    <meta content="Meridian Oil &amp; Gas" property="og:site_name" />
-    <meta content="Who We Are | Meridian Oil &amp; Gas" property="og:title" />
-    <meta
       content="About Meridian Oil &amp; Gas, a Texas-based company focused on disciplined onshore energy development."
-      property="og:description"
     />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Meridian Oil &amp; Gas" />
+    <meta property="og:title" content="Who We Are | Meridian Oil &amp; Gas" />
+
+    <meta
+      property="og:description"
+      content="About Meridian Oil &amp; Gas, a Texas-based company focused on disciplined onshore energy development."
+    />
+
     <link href="assets/favicon.png" rel="icon" type="image/png" />
     <link href="assets/site.css" rel="stylesheet" />
+
     <title>Who We Are | Meridian Oil &amp; Gas</title>
   </head>
-  <body class="">
+
+  <body>
+    <!-- SKIP LINK -->
     <a class="skip" href="#main">Skip to content</a>
+
+    <!-- SCROLL PROGRESS -->
     <div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
     <header class="site-header" id="siteHeader">
       <div class="header-inner">
+        <!-- LOGO -->
         <a
-          aria-label="Meridian Oil and Gas home"
           class="site-logo"
           href="index.html"
-          ><img
-            alt="Meridian Oil &amp; Gas"
-            height="91"
+          aria-label="Meridian Oil and Gas home"
+        >
+          <img
             src="assets/meridian-logo-light.svg"
+            alt="Meridian Oil &amp; Gas"
             width="318"
-        /></a>
-        <nav aria-label="Primary" class="desktop-nav">
-          <a href="index.html">Home</a><a href="projects.html">Projects</a
-          ><a href="team.html">Our Team</a
-          ><a aria-current="page" href="about.html">About</a
-          ><a href="education.html">Insights</a
-          ><a href="field-notes.html">Field Updates</a>
+            height="91"
+          />
+        </a>
+
+        <!-- DESKTOP NAVIGATION -->
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="index.html">Home</a>
+
+          <a href="projects.html">Projects</a>
+
+          <a href="team.html">Our Team</a>
+
+          <a href="about.html" aria-current="page">About</a>
+
+          <a href="why-us.html">Why Us</a>
+          <a href="education.html">Insights</a>
+
+          <a href="field-notes.html">Field Updates</a>
         </nav>
+
+        <!-- HEADER ACTIONS -->
         <div class="nav-actions">
-          <a class="header-contact" href="contact.html"
-            >Contact <span aria-hidden="true">↗</span></a
-          ><button
+          <a class="header-contact" href="contact.html">
+            Contact <span aria-hidden="true">↗</span>
+          </a>
+
+          <!-- MOBILE MENU BUTTON -->
+          <button
+            id="navToggle"
+            type="button"
+            class="nav-toggle"
             aria-controls="mobileNav"
             aria-expanded="false"
             aria-label="Open navigation menu"
-            class="nav-toggle"
           >
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
       </div>
-      <nav aria-label="Mobile" class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a><a href="projects.html">Projects</a
-        ><a href="team.html">Our Team</a
-        ><a aria-current="page" href="about.html">About</a
-        ><a href="education.html">Insights</a
-        ><a href="field-notes.html">Field Updates</a
-        ><a href="contact.html">Contact</a>
+
+      <!-- MOBILE NAVIGATION -->
+      <nav
+        class="mobile-nav"
+        id="mobileNav"
+        aria-label="Mobile"
+        aria-hidden="true"
+      >
+        <a href="index.html">Home</a>
+
+        <a href="projects.html">Projects</a>
+
+        <a href="team.html">Our Team</a>
+
+        <a href="about.html" aria-current="page">About</a>
+        <a href="why-us.html">Why Us</a>
+        <a href="education.html">Insights</a>
+
+        <a href="field-notes.html">Field Updates</a>
+
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
+
+    <!-- =====================================
+         WHATSAPP BUTTON
+    ====================================== -->
 
     <a
       class="whatsapp-btn"
@@ -80,30 +132,46 @@
       </svg>
     </a>
 
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
     <main id="main">
+      <!-- PAGE BANNER -->
       <section class="page-banner about-banner">
         <div class="content-shell" data-reveal="">
-          <span class="overline gold">ABOUT MERIDIAN</span>
-          <h1>Built for the <em>work.</em><br />Not just the vision.</h1>
+          <span class="overline gold"> ABOUT MERIDIAN </span>
+
+          <h1>
+            Built for the <em>work.</em><br />
+            Not just the vision.
+          </h1>
+
           <p>
             Energy development begins with a clear view of what it takes to
             evaluate, drill, complete and operate a well.
           </p>
         </div>
       </section>
+
+      <!-- OUR STORY -->
       <section class="section-pad">
         <div class="content-shell about-layout">
           <div data-reveal="">
-            <span class="overline">OUR STORY</span>
+            <span class="overline"> OUR STORY </span>
+
             <h2 class="display-heading">
-              A Texas company with an <em>onshore focus.</em>
+              A Texas company with an
+              <em>onshore focus.</em>
             </h2>
           </div>
+
           <div data-reveal="">
             <p class="lead">
               Meridian Oil &amp; Gas, LLC is a Texas-based company focused on
               coordinating and supporting oil and gas development programs.
             </p>
+
             <p>
               Our recent work in Louisiana involves technical planning, site and
               surface infrastructure, drilling coordination, completion
@@ -111,6 +179,7 @@
               sequence of measurable steps—not as a promise about production or
               financial performance.
             </p>
+
             <p>
               We believe useful communication explains not only what has been
               accomplished but also what remains subject to permitting, testing,
@@ -119,34 +188,46 @@
           </div>
         </div>
       </section>
+
+      <!-- OPERATING PRINCIPLES -->
       <section class="section-pad values-section">
         <div class="content-shell">
           <div class="center-heading" data-reveal="">
-            <span class="overline">WHAT GUIDES US</span>
+            <span class="overline"> WHAT GUIDES US </span>
+
             <h2 class="display-heading">
               Three operating <em>principles.</em>
             </h2>
           </div>
+
           <div class="values-grid">
             <article data-reveal="">
               <span>01</span>
+
               <h3>Technical discipline</h3>
+
               <p>
                 Base development decisions on geology, well data, engineering
                 assessment and practical field feasibility.
               </p>
             </article>
+
             <article data-reveal="">
               <span>02</span>
+
               <h3>Operational accountability</h3>
+
               <p>
                 Track what is built, permitted, tested and commissioned while
                 identifying execution dependencies.
               </p>
             </article>
+
             <article data-reveal="">
               <span>03</span>
+
               <h3>Clear communication</h3>
+
               <p>
                 Distinguish completed milestones from future objectives, and
                 make room for operational uncertainty.
@@ -155,45 +236,68 @@
           </div>
         </div>
       </section>
+
+      <!-- LEADERSHIP -->
       <section class="section-pad leadership-section">
         <div class="content-shell leadership-grid">
           <div data-reveal="">
-            <span class="overline gold">LEADERSHIP</span>
+            <span class="overline gold"> LEADERSHIP </span>
+
             <h2 class="display-heading">Our leadership &amp; team.</h2>
+
             <p>
               Meridian's leadership coordinates the commercial, technical and
               operating relationships involved in its development activities.
             </p>
           </div>
+
           <div class="leader-card" data-reveal="">
-            <div aria-hidden="true" class="leader-monogram">SG</div>
+            <div class="leader-monogram" aria-hidden="true">SG</div>
+
             <div>
-              <span class="overline">FOUNDER &amp; CEO</span>
+              <span class="overline"> FOUNDER &amp; CEO </span>
+
               <h3>Seshu Ganta</h3>
+
               <p>
                 Leads Meridian's business development, project coordination and
                 corporate communications. Field activities involve specialist
                 contractors and technical advisers.
               </p>
+
               <p class="small muted">
                 Additional team biographies and professional credentials will be
                 published after verification and approval.
               </p>
             </div>
           </div>
-          <a class="btn btn-outline-light" href="team.html">Meet our team ↗</a>
+
+          <a class="btn btn-outline-light" href="team.html">
+            Meet our team ↗
+          </a>
         </div>
       </section>
+
+      <!-- =====================================
+             NEWSLETTER
+        ====================================== -->
+
       <section class="newsletter-section" id="subscribe">
         <div class="content-shell newsletter-layout">
           <div class="newsletter-heading" data-reveal="">
-            <span class="overline gold">THE MERIDIAN DISPATCH</span>
-            <h2>Stay informed.<br /><em>Stay curious.</em></h2>
+            <span class="overline gold"> THE MERIDIAN DISPATCH </span>
+
+            <h2>
+              Stay informed.<br />
+              <em>Stay curious.</em>
+            </h2>
+
             <p>
               Receive occasional field notes, original energy explainers and
               corporate news. No securities offerings or investment promotions.
             </p>
           </div>
+
           <form
             action="/thank-you.html"
             class="subscribe-form"
@@ -204,14 +308,19 @@
             netlify-honeypot="bot-field"
           >
             <input name="form-name" type="hidden" value="meridian-dispatch" />
+
             <p class="sr-only">
-              <label
-                >Leave this blank <input autocomplete="off" name="bot-field"
-              /></label>
+              <label>
+                Leave this blank
+
+                <input autocomplete="off" name="bot-field" />
+              </label>
             </p>
-            <label class="form-field-label" for="subscribeEmail"
-              >YOUR EMAIL ADDRESS</label
-            >
+
+            <label class="form-field-label" for="subscribeEmail">
+              YOUR EMAIL ADDRESS
+            </label>
+
             <div class="subscribe-row">
               <input
                 autocomplete="email"
@@ -219,29 +328,37 @@
                 maxlength="254"
                 name="email"
                 placeholder="you@example.com"
-                required=""
+                required
                 type="email"
-              /><button class="btn btn-gold" type="submit">
+              />
+
+              <button class="btn btn-gold" type="submit">
                 Join the dispatch <span>↗</span>
               </button>
             </div>
-            <label class="check-label"
-              ><input
+
+            <label class="check-label">
+              <input
                 name="email_consent"
-                required=""
+                required
                 type="checkbox"
                 value="yes"
-              /><span
-                >I consent to occasional Meridian corporate and energy-education
+              />
+
+              <span>
+                I consent to occasional Meridian corporate and energy-education
                 emails and understand I can unsubscribe at any time. See our
-                <a href="privacy.html">Privacy Policy</a>.</span
-              ></label
-            >
+
+                <a href="privacy.html"> Privacy Policy </a>.
+              </span>
+            </label>
+
             <p class="form-fine">
               Subscribing does not grant access to confidential securities
               offerings or establish an investor relationship.
             </p>
-            <p class="demo-alert" hidden="">
+
+            <p class="demo-alert" hidden>
               Preview only — subscriber storage activates after the website is
               deployed and configured.
             </p>
@@ -249,6 +366,11 @@
         </div>
       </section>
     </main>
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
     <footer class="footer">
       <div class="footer-main content-shell">
         <!-- BRAND -->
@@ -256,7 +378,7 @@
           <a href="index.html" aria-label="Meridian Oil and Gas home">
             <img
               src="assets/meridian-logo-light.svg"
-              alt="Meridian Oil & Gas"
+              alt="Meridian Oil &amp; Gas"
               width="270"
               height="77"
               loading="lazy"
@@ -286,7 +408,9 @@
                 aria-hidden="true"
               >
                 <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+
                 <circle cx="12" cy="12" r="4"></circle>
+
                 <circle cx="17.5" cy="6.5" r="1"></circle>
               </svg>
             </a>
@@ -336,9 +460,13 @@
           <strong>Company</strong>
 
           <a href="projects.html">Projects</a>
+
           <a href="team.html">Our Team</a>
+
           <a href="about.html">About Meridian</a>
+
           <a href="approach.html">Our Approach</a>
+
           <a href="operations.html">Operations</a>
         </div>
 
@@ -347,11 +475,14 @@
           <strong>Explore</strong>
 
           <a href="education.html">Energy Insights</a>
-          <a href="article-how-oil-wells-work.html">How wells work</a>
+
+          <a href="article-how-oil-wells-work.html"> How wells work </a>
+
           <a href="article-why-energy-matters.html">
             Energy in everyday life
           </a>
-          <a href="education.html#glossary">Energy glossary</a>
+
+          <a href="education.html#glossary"> Energy glossary </a>
         </div>
 
         <!-- CONTACT LINKS -->
@@ -365,7 +496,9 @@
           <a href="tel:+17324296629"> +1 (732) 429-6629 </a>
 
           <a href="contact.html">Business inquiries</a>
+
           <a href="privacy.html">Privacy &amp; email policy</a>
+
           <a href="legal.html">Legal notice</a>
         </div>
       </div>
@@ -376,10 +509,16 @@
 
         <span>
           Corporate information only. No offer of securities.
+
           <a href="legal.html">Legal notice</a>
         </span>
       </div>
     </footer>
-    <script defer="" src="assets/site.js"></script>
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script defer src="assets/site.js"></script>
   </body>
 </html>
